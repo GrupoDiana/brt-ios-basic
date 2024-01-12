@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofxiOS.h"
+#include "ofxBRT.h"
 
 class ofApp : public ofxiOSApp {
 	
@@ -21,5 +22,9 @@ class ofApp : public ofxiOSApp {
         void gotMemoryWarning() override;
         void deviceOrientationChanged(int newOrientation) override;
         void launchedWithURL(std::string url) override;
+    
+    private:
+        Common::CGlobalParameters globalParameters;
+        BRTBase::CBRTManager brtManager;
 
 };
