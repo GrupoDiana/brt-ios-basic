@@ -1,0 +1,6 @@
+[submodule "addons/ofxAudioFile"]
+	path = addons/ofxAudioFile
+	url = https://github.com/npisanti/ofxAudioFile
+[submodule "addons/ofxBRT/libs/brt"]
+	path = addons/ofxBRT/libs/brt
+	url = https://github.com/GrupoDiana/BRTLibrary.git
