@@ -69,3 +69,17 @@ void ofApp::deviceOrientationChanged(int newOrientation){
 void ofApp::launchedWithURL(std::string url){
 
 }
+
+/// StartOFAudio
+void ofApp::StartOFAudio() {
+    if (ofAudioStarted) return;
+    systemSoundStream.start();
+    ofAudioStarted = true;
+}
+
+
+void ofApp::StopOFAudio() {
+    if (!ofAudioStarted) return;
+    systemSoundStream.stop();
+    ofAudioStarted = false;
+}
