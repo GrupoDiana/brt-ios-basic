@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		"1FEAF6D8-B13C-4F08-AC1A-D3A27C8128D1" /* ofxAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = "22E8EACC-21BA-423A-9C84-1FD7F2B01552" /* ofxAudioFile.cpp */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		"384E089F-779A-4735-9B58-DC4D276B93EE" /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = "342547FC-F87A-4620-A06D-4F9E7C3428D2" /* test.cpp */; };
 		5326AEA810A23A0500278DE6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5326AEA710A23A0500278DE6 /* CoreLocation.framework */; };
 		53F323EB10A20EDB00E0DAE4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */; };
 		67DFA53619F92A69003B3434 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DFA53419F92A5E003B3434 /* Accelerate.framework */; };
@@ -21,7 +21,7 @@
 		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
 		BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
 		BBE5EAB80F49AD8400F28951 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */; };
-		"C8E26D23-94FB-4A8E-9B24-F4B1EC7C0CCB" /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = "EF3DBE5F-106A-44C7-9B48-00207527ACEB" /* test.cpp */; };
+		"CD2AAF72-AC50-40EA-8529-8F13DCE30715" /* ofxAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = "4EEF5670-14AE-4FAD-AB8D-4BAEB64A9FE2" /* ofxAudioFile.cpp */; };
 		E41D400B13B39D2100A75A5D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E41D400613B39D2100A75A5D /* AVFoundation.framework */; };
 		E41D400C13B39D2100A75A5D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E41D400713B39D2100A75A5D /* CoreMedia.framework */; };
 		E41D400D13B39D2100A75A5D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E41D400813B39D2100A75A5D /* CoreVideo.framework */; };
@@ -48,91 +48,93 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		"0245D627-45A0-41EA-9654-CBCD8316414A" /* dr_mp3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = dr_mp3.h; path = addons/ofxAudioFile/libs/dr_mp3.h; sourceTree = SOURCE_ROOT; };
-		"0300FA80-E73B-4E57-8510-82CB7027096E" /* ExitPointManager.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ExitPointManager.hpp; path = addons/ofxBRT/libs/brt/include/Base/ExitPointManager.hpp; sourceTree = SOURCE_ROOT; };
-		"052B910C-E1B2-481A-BDE1-207AFC2994C8" /* BilateralAmbisonicEncoderProcessor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = BilateralAmbisonicEncoderProcessor.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/BilateralAmbisonicEncoderProcessor.hpp; sourceTree = SOURCE_ROOT; };
-		"0E47EE3F-6EF8-47C0-A3ED-6AA1452F09DF" /* CommandEntryPointManager.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = CommandEntryPointManager.hpp; path = addons/ofxBRT/libs/brt/include/Base/CommandEntryPointManager.hpp; sourceTree = SOURCE_ROOT; };
-		"16BFFE59-6399-4A63-8229-397190C727F4" /* ExitPoint.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ExitPoint.hpp; path = addons/ofxBRT/libs/brt/include/Base/ExitPoint.hpp; sourceTree = SOURCE_ROOT; };
-		"174A520D-6399-4E65-B5A0-FA421124152D" /* SofaReader.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SofaReader.hpp; path = addons/ofxBRT/libs/brt/include/Readers/SofaReader.hpp; sourceTree = SOURCE_ROOT; };
-		"196F2C92-1540-4652-986E-553168AE96D2" /* ILD.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ILD.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/ILD.hpp; sourceTree = SOURCE_ROOT; };
+		"001D8D80-4CDE-4FD7-AC0A-C287D1B9A731" /* EnvelopeDetector.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = EnvelopeDetector.hpp; path = addons/ofxBRT/libs/brt/include/Common/EnvelopeDetector.hpp; sourceTree = SOURCE_ROOT; };
+		"01CAE134-5F81-4DD4-A4ED-43A0FE060D37" /* Quaternion.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Quaternion.hpp; path = addons/ofxBRT/libs/brt/include/Common/Quaternion.hpp; sourceTree = SOURCE_ROOT; };
+		"03B739FB-CB9A-4E28-B5E7-5A41ACF7FBAF" /* HRTFDefinitions.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = HRTFDefinitions.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/HRTFDefinitions.hpp; sourceTree = SOURCE_ROOT; };
+		"04B4FFB7-220A-4089-B149-FB3A17038AFC" /* AmbisonicEncoder.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = AmbisonicEncoder.hpp; path = addons/ofxBRT/libs/brt/include/Common/AmbisonicEncoder.hpp; sourceTree = SOURCE_ROOT; };
+		"05AE32FF-EBEF-4955-9988-A7FB0C7F3921" /* DistanceAttenuation.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = DistanceAttenuation.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/DistanceAttenuation.hpp; sourceTree = SOURCE_ROOT; };
+		"0E50E34D-56F3-4B20-8A45-E6F79516A00C" /* BRTLibrary.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = BRTLibrary.h; path = addons/ofxBRT/libs/brt/include/BRTLibrary.h; sourceTree = SOURCE_ROOT; };
+		"0E5AFEC5-7757-4E2A-9CD7-52D44FA86EE6" /* Transform.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Transform.hpp; path = addons/ofxBRT/libs/brt/include/Common/Transform.hpp; sourceTree = SOURCE_ROOT; };
+		"10140EEE-4BAF-4A39-A497-B3219426D5D4" /* BilateralAmbisonicEncoder.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = BilateralAmbisonicEncoder.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/BilateralAmbisonicEncoder.hpp; sourceTree = SOURCE_ROOT; };
+		"11CCAB17-9EB4-4173-9EBD-54DD9D823007" /* Buffer.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Buffer.hpp; path = addons/ofxBRT/libs/brt/include/Common/Buffer.hpp; sourceTree = SOURCE_ROOT; };
+		"124C6235-8A81-443F-B9F3-603DFE22473A" /* MultipleInputProcessor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = MultipleInputProcessor.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/MultipleInputProcessor.hpp; sourceTree = SOURCE_ROOT; };
+		"16945B6E-CA1A-42EC-B5B4-885C115C19BD" /* ObserverBase.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ObserverBase.hpp; path = addons/ofxBRT/libs/brt/include/Base/ObserverBase.hpp; sourceTree = SOURCE_ROOT; };
+		"18F1ED69-2437-4C67-AD65-6A46FC0B1ED5" /* ILD.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ILD.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/ILD.hpp; sourceTree = SOURCE_ROOT; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* anotherSketch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = anotherSketch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		"1FD189F4-3672-4648-B39D-6E0089D979E5" /* NearFieldEffect.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = NearFieldEffect.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/NearFieldEffect.hpp; sourceTree = SOURCE_ROOT; };
-		"222813C5-BD26-4EA7-A34B-7E42305B28BE" /* DirectivityTF.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = DirectivityTF.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/DirectivityTF.hpp; sourceTree = SOURCE_ROOT; };
-		"22E8EACC-21BA-423A-9C84-1FD7F2B01552" /* ofxAudioFile.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxAudioFile.cpp; path = addons/ofxAudioFile/src/ofxAudioFile.cpp; sourceTree = SOURCE_ROOT; };
-		"258BB0A1-2AA4-4172-A49D-88D592617185" /* Vector3.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Vector3.hpp; path = addons/ofxBRT/libs/brt/include/Common/Vector3.hpp; sourceTree = SOURCE_ROOT; };
+		"2283EBB4-0E0C-4917-8757-DA2E46ED5643" /* DirectivityTFDefinitions.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = DirectivityTFDefinitions.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/DirectivityTFDefinitions.hpp; sourceTree = SOURCE_ROOT; };
+		"23ECE8DF-545E-42EF-9440-FF014672B131" /* HRTFTester.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = HRTFTester.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/HRTFTester.hpp; sourceTree = SOURCE_ROOT; };
+		"26849E0C-53D1-4C8A-B0D1-D1A7A3C1E8A3" /* BilateralAmbisonicEncoderProcessor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = BilateralAmbisonicEncoderProcessor.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/BilateralAmbisonicEncoderProcessor.hpp; sourceTree = SOURCE_ROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		"29899677-A90B-446D-88FB-E9B237B191C9" /* BiquadFilter.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = BiquadFilter.hpp; path = addons/ofxBRT/libs/brt/include/Common/BiquadFilter.hpp; sourceTree = SOURCE_ROOT; };
-		"2A5FFD5A-5C2D-474F-8E3D-63C0595DF30C" /* json.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = json.hpp; path = addons/ofxBRT/libs/brt/include/third_party_libraries/nlohmann/json.hpp; sourceTree = SOURCE_ROOT; };
-		"3014174D-8A18-4F6D-8B7D-777349B7B611" /* EntryPointManager.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = EntryPointManager.hpp; path = addons/ofxBRT/libs/brt/include/Base/EntryPointManager.hpp; sourceTree = SOURCE_ROOT; };
-		"305308B9-81FA-40D0-94C3-DE9C69FAF256" /* MultipleInputProcessor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = MultipleInputProcessor.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/MultipleInputProcessor.hpp; sourceTree = SOURCE_ROOT; };
-		"327D6CAA-4A50-4CBA-B82F-045D957BED64" /* DirectivityTFConvolver.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = DirectivityTFConvolver.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/DirectivityTFConvolver.hpp; sourceTree = SOURCE_ROOT; };
+		"29DD7E0C-D152-4649-959B-89FC281E567C" /* SourceModelBase.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SourceModelBase.hpp; path = addons/ofxBRT/libs/brt/include/Base/SourceModelBase.hpp; sourceTree = SOURCE_ROOT; };
+		"313DD555-87A1-49D7-9626-F7F0AAE88783" /* DirectivityTFAuxiliarMethods.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = DirectivityTFAuxiliarMethods.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/DirectivityTFAuxiliarMethods.hpp; sourceTree = SOURCE_ROOT; };
+		"32455E9F-AB9F-41B7-9B0A-9F1AD5782FDA" /* ofxAudioFile.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxAudioFile.h; path = addons/ofxAudioFile/src/ofxAudioFile.h; sourceTree = SOURCE_ROOT; };
 		32CA4F630368D1EE00C91783 /* ofxiOS_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxiOS_Prefix.pch; sourceTree = "<group>"; };
-		"3A8F684D-5C47-442B-A426-89B51B1AB51A" /* ListenerModelBase.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ListenerModelBase.hpp; path = addons/ofxBRT/libs/brt/include/Base/ListenerModelBase.hpp; sourceTree = SOURCE_ROOT; };
-		"3C67851E-8C60-40FC-B2CB-1FE13636659A" /* dr_flac.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = dr_flac.h; path = addons/ofxAudioFile/libs/dr_flac.h; sourceTree = SOURCE_ROOT; };
-		"3E37F88C-7003-4D05-AAC3-5948557F49B1" /* CommonDefinitions.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = CommonDefinitions.hpp; path = addons/ofxBRT/libs/brt/include/Common/CommonDefinitions.hpp; sourceTree = SOURCE_ROOT; };
-		"41FE0125-6140-4623-BFBF-F9F12D2EF6FF" /* OfflineInterpolationAuxiliarMethods.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OfflineInterpolationAuxiliarMethods.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/OfflineInterpolationAuxiliarMethods.hpp; sourceTree = SOURCE_ROOT; };
-		"43543617-203A-4F20-BC7B-F6931EA2A482" /* BRTManager.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = BRTManager.hpp; path = addons/ofxBRT/libs/brt/include/Base/BRTManager.hpp; sourceTree = SOURCE_ROOT; };
-		"4472DE2E-F7F1-4AF9-A1BE-7786105BC08E" /* SourceListenerRelativePositionCalculation.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SourceListenerRelativePositionCalculation.hpp; path = addons/ofxBRT/libs/brt/include/Common/SourceListenerRelativePositionCalculation.hpp; sourceTree = SOURCE_ROOT; };
-		"4FCC08C5-D980-45C3-833B-F59F474D9619" /* ofxBRT.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxBRT.h; path = addons/ofxBRT/src/ofxBRT.h; sourceTree = SOURCE_ROOT; };
-		"50E9736A-71AD-4EB2-8531-62A57759F427" /* VirtualSpeakers.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = VirtualSpeakers.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/VirtualSpeakers.hpp; sourceTree = SOURCE_ROOT; };
+		"342547FC-F87A-4620-A06D-4F9E7C3428D2" /* test.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = test.cpp; path = addons/ofxBRT/libs/brt/test/test.cpp; sourceTree = SOURCE_ROOT; };
+		"35DBFACA-3AD1-47EB-848E-3BB131D071B6" /* dr_mp3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = dr_mp3.h; path = addons/ofxAudioFile/libs/dr_mp3.h; sourceTree = SOURCE_ROOT; };
+		"39A9BBCE-DD76-40DE-A5C0-2F5C6A8CFD5A" /* OfflineInterpolation.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OfflineInterpolation.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/OfflineInterpolation.hpp; sourceTree = SOURCE_ROOT; };
+		"3C8AB476-DEDC-444A-A7E1-3E21A021815F" /* SingleProcessor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SingleProcessor.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/SingleProcessor.hpp; sourceTree = SOURCE_ROOT; };
+		"3E5888EC-BA58-423E-B253-F8CDC6DBB8D8" /* ExitPoint.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ExitPoint.hpp; path = addons/ofxBRT/libs/brt/include/Base/ExitPoint.hpp; sourceTree = SOURCE_ROOT; };
+		"4053B1D5-F547-456A-997F-70729FF6AD62" /* fftsg.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = fftsg.hpp; path = addons/ofxBRT/libs/brt/include/Common/fftsg.hpp; sourceTree = SOURCE_ROOT; };
+		"418D983E-686A-485A-9C80-38C92BEF0B63" /* VirtualSpeakers.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = VirtualSpeakers.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/VirtualSpeakers.hpp; sourceTree = SOURCE_ROOT; };
+		"4EEF5670-14AE-4FAD-AB8D-4BAEB64A9FE2" /* ofxAudioFile.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxAudioFile.cpp; path = addons/ofxAudioFile/src/ofxAudioFile.cpp; sourceTree = SOURCE_ROOT; };
 		5326AEA710A23A0500278DE6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
-		"5452C7EE-4448-465F-AC88-39DF00A7DFB4" /* SourceDirectivityModel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SourceDirectivityModel.hpp; path = addons/ofxBRT/libs/brt/include/SourceModels/SourceDirectivityModel.hpp; sourceTree = SOURCE_ROOT; };
-		"5939A549-F46B-42B8-818B-F2D22BD38CA6" /* HRTFConvolver.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = HRTFConvolver.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/HRTFConvolver.hpp; sourceTree = SOURCE_ROOT; };
-		"5C20E02D-56C8-416F-BD6D-BA13A2A9816E" /* HRTFAuxiliarMethods.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = HRTFAuxiliarMethods.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/HRTFAuxiliarMethods.hpp; sourceTree = SOURCE_ROOT; };
-		"601608EF-112E-421E-ABCE-3D4B6E5CB2C6" /* ofxAudioFile.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxAudioFile.h; path = addons/ofxAudioFile/src/ofxAudioFile.h; sourceTree = SOURCE_ROOT; };
-		"607AD64B-7C95-44B0-A8CF-77C1C15BED29" /* ObserverBase.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ObserverBase.hpp; path = addons/ofxBRT/libs/brt/include/Base/ObserverBase.hpp; sourceTree = SOURCE_ROOT; };
-		"62E5DBCC-2FB2-49D5-9795-F7904602DA45" /* AddDelayExpansionMethod.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = AddDelayExpansionMethod.hpp; path = addons/ofxBRT/libs/brt/include/Common/AddDelayExpansionMethod.hpp; sourceTree = SOURCE_ROOT; };
-		"6622B576-8F79-4125-8ED8-A98D74DDD889" /* ListenerHRTFbasedModel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ListenerHRTFbasedModel.hpp; path = addons/ofxBRT/libs/brt/include/ListenerModels/ListenerHRTFbasedModel.hpp; sourceTree = SOURCE_ROOT; };
-		"679B633C-9B95-45AC-9536-BCB0D039430A" /* GlobalParameters.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = GlobalParameters.hpp; path = addons/ofxBRT/libs/brt/include/Common/GlobalParameters.hpp; sourceTree = SOURCE_ROOT; };
+		"5AC9C43B-58C7-4B3A-AC5F-809EFCF91A50" /* GlobalParameters.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = GlobalParameters.hpp; path = addons/ofxBRT/libs/brt/include/Common/GlobalParameters.hpp; sourceTree = SOURCE_ROOT; };
+		"5B54D375-7C54-46BC-A088-F0CD6D365A40" /* Command.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Command.hpp; path = addons/ofxBRT/libs/brt/include/Base/Command.hpp; sourceTree = SOURCE_ROOT; };
+		"5D306BE0-FE79-4EA3-8053-9180E6A9A1C2" /* HRTFConvolver.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = HRTFConvolver.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/HRTFConvolver.hpp; sourceTree = SOURCE_ROOT; };
+		"5D95B637-27E5-4FA2-BB0A-552CACBDE656" /* mysofa.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = mysofa.h; path = addons/ofxlibMySofa/libs/libmysofa/include/mysofa.h; sourceTree = SOURCE_ROOT; };
+		"62C9F8F8-C6E9-4832-A20C-BB99F58CD146" /* SingleBinauralProcessor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SingleBinauralProcessor.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/SingleBinauralProcessor.hpp; sourceTree = SOURCE_ROOT; };
+		"663E3A3E-924F-47B8-9666-88501DD262AA" /* DirectivityTF.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = DirectivityTF.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/DirectivityTF.hpp; sourceTree = SOURCE_ROOT; };
 		67DFA53419F92A5E003B3434 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		"71B9D9C3-6691-4727-8EA4-FE4FDC192DD5" /* ServiceModuleInterfaces.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ServiceModuleInterfaces.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/ServiceModuleInterfaces.hpp; sourceTree = SOURCE_ROOT; };
-		"7443C986-29FA-408E-9383-1347E8844B88" /* Transform.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Transform.hpp; path = addons/ofxBRT/libs/brt/include/Common/Transform.hpp; sourceTree = SOURCE_ROOT; };
-		"7566DAF4-DC95-49F0-9009-7111BC69B7B5" /* Quaternion.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Quaternion.hpp; path = addons/ofxBRT/libs/brt/include/Common/Quaternion.hpp; sourceTree = SOURCE_ROOT; };
-		"76CF33AE-8862-4E26-B86E-CBF1B4069207" /* SingleProcessor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SingleProcessor.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/SingleProcessor.hpp; sourceTree = SOURCE_ROOT; };
-		"7922BCCB-1BE2-4936-9759-4E7DA815D108" /* ProcessorBase.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ProcessorBase.hpp; path = addons/ofxBRT/libs/brt/include/Base/ProcessorBase.hpp; sourceTree = SOURCE_ROOT; };
-		"795B036B-AAAC-46E2-8454-25B8F7A9E42A" /* Profiler.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Profiler.hpp; path = addons/ofxBRT/libs/brt/include/Common/Profiler.hpp; sourceTree = SOURCE_ROOT; };
-		"7B6CD6A4-F032-4F27-A2B7-7D37D288CCB5" /* stb_vorbis.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = stb_vorbis.h; path = addons/ofxAudioFile/libs/stb_vorbis.h; sourceTree = SOURCE_ROOT; };
-		"83516294-22F4-4B91-BCE9-BFF673BA503F" /* EnvelopeDetector.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = EnvelopeDetector.hpp; path = addons/ofxBRT/libs/brt/include/Common/EnvelopeDetector.hpp; sourceTree = SOURCE_ROOT; };
-		"8C2567FE-08BD-464C-AC83-5AC6B1370EE2" /* GridsManager.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = GridsManager.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/GridsManager.hpp; sourceTree = SOURCE_ROOT; };
-		"8DBADB55-AD4A-4D7B-A47C-7C30BC7DDCA1" /* SingleBinauralProcessor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SingleBinauralProcessor.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/SingleBinauralProcessor.hpp; sourceTree = SOURCE_ROOT; };
-		"8DE3AE66-558C-46F7-865E-600E82361E61" /* AmbisonicDomainConvolverProcessor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = AmbisonicDomainConvolverProcessor.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/AmbisonicDomainConvolverProcessor.hpp; sourceTree = SOURCE_ROOT; };
+		"67FF92FF-9375-43DC-A860-78C5A55F1B6F" /* Conventions.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Conventions.hpp; path = addons/ofxBRT/libs/brt/include/Common/Conventions.hpp; sourceTree = SOURCE_ROOT; };
+		"7153E2C0-AC68-46B1-96B9-9136B376A057" /* Extrapolation.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Extrapolation.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/Extrapolation.hpp; sourceTree = SOURCE_ROOT; };
+		"719118D1-681C-4A64-815C-7830550D662C" /* GridsManager.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = GridsManager.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/GridsManager.hpp; sourceTree = SOURCE_ROOT; };
+		"71F19EBD-74FD-4535-A20B-B786A1696E8C" /* AddDelayExpansionMethod.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = AddDelayExpansionMethod.hpp; path = addons/ofxBRT/libs/brt/include/Common/AddDelayExpansionMethod.hpp; sourceTree = SOURCE_ROOT; };
+		"723C27A4-EE50-481D-8E15-6F47D3711F70" /* UPCAnechoic.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = UPCAnechoic.hpp; path = addons/ofxBRT/libs/brt/include/Common/UPCAnechoic.hpp; sourceTree = SOURCE_ROOT; };
+		"78FEECE1-6C9D-4181-906D-3D3EFC21577B" /* BiquadFilter.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = BiquadFilter.hpp; path = addons/ofxBRT/libs/brt/include/Common/BiquadFilter.hpp; sourceTree = SOURCE_ROOT; };
+		"8882A8A4-448B-40BA-81B5-82B75674CC2F" /* json.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = json.hpp; path = addons/ofxBRT/libs/brt/include/third_party_libraries/nlohmann/json.hpp; sourceTree = SOURCE_ROOT; };
+		"8DF5348F-8BF6-4BDA-B7FC-683E6200C803" /* SourceSimpleModel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SourceSimpleModel.hpp; path = addons/ofxBRT/libs/brt/include/SourceModels/SourceSimpleModel.hpp; sourceTree = SOURCE_ROOT; };
 		901808BF2053636F004A7774 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		"94B71CE7-A50C-4BA2-9B7A-716EB473AB71" /* OnlineInterpolation.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OnlineInterpolation.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/OnlineInterpolation.hpp; sourceTree = SOURCE_ROOT; };
-		"965BFE43-E4E7-41BB-AC5A-D139EA83274B" /* HRTF.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = HRTF.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/HRTF.hpp; sourceTree = SOURCE_ROOT; };
-		"981119E1-3CEA-4E25-B436-86DB0231463E" /* UPCAnechoic.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = UPCAnechoic.hpp; path = addons/ofxBRT/libs/brt/include/Common/UPCAnechoic.hpp; sourceTree = SOURCE_ROOT; };
+		"9575BA49-A7C7-4B0C-B3C1-96AFEB2F57EE" /* stb_vorbis.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = stb_vorbis.h; path = addons/ofxAudioFile/libs/stb_vorbis.h; sourceTree = SOURCE_ROOT; };
+		"98FE822A-4F38-4A88-B015-2142720FA8F9" /* EntryPoint.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = EntryPoint.hpp; path = addons/ofxBRT/libs/brt/include/Base/EntryPoint.hpp; sourceTree = SOURCE_ROOT; };
 		9936F60F1BFA4DEE00891288 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9936F6111BFA65F100891288 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9969E7551C782C4500DEF0F6 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		"A25EFBCE-D1C2-40C2-98BB-2FDD3D84BC5C" /* HRTFDefinitions.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = HRTFDefinitions.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/HRTFDefinitions.hpp; sourceTree = SOURCE_ROOT; };
-		"A32667F1-3BB7-4AA6-B47F-D8AF2B8A54BA" /* SourceModelBase.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SourceModelBase.hpp; path = addons/ofxBRT/libs/brt/include/Base/SourceModelBase.hpp; sourceTree = SOURCE_ROOT; };
-		"A4654E00-07AB-4D50-9518-50165C52C46E" /* HRTFConvolverProcessor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = HRTFConvolverProcessor.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/HRTFConvolverProcessor.hpp; sourceTree = SOURCE_ROOT; };
-		"AC142FCE-716E-47F8-B3EF-7BA9A2AC0C0F" /* DistanceAttenuation.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = DistanceAttenuation.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/DistanceAttenuation.hpp; sourceTree = SOURCE_ROOT; };
-		"B84C9739-3A07-46F5-ADC3-A572A35B6C63" /* DirectivityTFAuxiliarMethods.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = DirectivityTFAuxiliarMethods.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/DirectivityTFAuxiliarMethods.hpp; sourceTree = SOURCE_ROOT; };
+		"99CF44A8-1C36-4044-80AD-86B8A2EC5AB5" /* SourceListenerRelativePositionCalculation.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SourceListenerRelativePositionCalculation.hpp; path = addons/ofxBRT/libs/brt/include/Common/SourceListenerRelativePositionCalculation.hpp; sourceTree = SOURCE_ROOT; };
+		"9C151E50-1DAB-45DE-823E-2A8593C00917" /* ofxBRT.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxBRT.h; path = addons/ofxBRT/src/ofxBRT.h; sourceTree = SOURCE_ROOT; };
+		"A03E0769-B26B-48D6-983F-12112DBE3576" /* HRTFConvolverProcessor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = HRTFConvolverProcessor.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/HRTFConvolverProcessor.hpp; sourceTree = SOURCE_ROOT; };
+		"A05632D3-B4E7-4735-8AB6-7C1F348A13EC" /* Fprocessor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Fprocessor.hpp; path = addons/ofxBRT/libs/brt/include/Common/Fprocessor.hpp; sourceTree = SOURCE_ROOT; };
+		"A23340E9-02F8-4328-B856-6C0903B10A38" /* CommandEntryPointManager.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = CommandEntryPointManager.hpp; path = addons/ofxBRT/libs/brt/include/Base/CommandEntryPointManager.hpp; sourceTree = SOURCE_ROOT; };
+		"A36F6B72-E71F-45EB-B73B-02ACC9F5051F" /* BRTManager.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = BRTManager.hpp; path = addons/ofxBRT/libs/brt/include/Base/BRTManager.hpp; sourceTree = SOURCE_ROOT; };
+		"A754F151-2FF0-4F3F-A058-DCA1B50EE30B" /* EntryPointManager.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = EntryPointManager.hpp; path = addons/ofxBRT/libs/brt/include/Base/EntryPointManager.hpp; sourceTree = SOURCE_ROOT; };
+		"A7AAA210-9716-4BB9-835D-5E97DCA65BF6" /* HRTF.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = HRTF.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/HRTF.hpp; sourceTree = SOURCE_ROOT; };
+		"A9623DEB-EE88-4AEE-B67C-C7CA9F32ADF1" /* AmbisonicDomainConvolverProcessor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = AmbisonicDomainConvolverProcessor.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/AmbisonicDomainConvolverProcessor.hpp; sourceTree = SOURCE_ROOT; };
+		"B37E167E-12A1-4322-9E38-3CC49E918901" /* dr_wav.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = dr_wav.h; path = addons/ofxAudioFile/libs/dr_wav.h; sourceTree = SOURCE_ROOT; };
+		"B3BDDC12-20D7-403B-B7E5-12D5CEBF2FE8" /* ErrorHandler.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ErrorHandler.hpp; path = addons/ofxBRT/libs/brt/include/Common/ErrorHandler.hpp; sourceTree = SOURCE_ROOT; };
+		"B6BC5732-8FDB-45D5-B7BE-F349C943D088" /* dr_flac.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = dr_flac.h; path = addons/ofxAudioFile/libs/dr_flac.h; sourceTree = SOURCE_ROOT; };
+		"BA388328-9922-4CC5-BC37-9A1020E8DF77" /* HRTFAuxiliarMethods.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = HRTFAuxiliarMethods.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/HRTFAuxiliarMethods.hpp; sourceTree = SOURCE_ROOT; };
 		BB16EBD10F2B2A9500518274 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BB16EBD80F2B2AB500518274 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BB24DDC910DA781C00E9C588 /* ofxiOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ofxiOS-Info.plist"; sourceTree = "<group>"; };
-		"BB38AB92-6159-47FA-A32F-93D7033920D9" /* InterpolationAuxiliarMethods.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = InterpolationAuxiliarMethods.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/InterpolationAuxiliarMethods.hpp; sourceTree = SOURCE_ROOT; };
 		BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		"BC07385C-3EA4-4B2D-AE6D-BB61C7C9C0FC" /* Command.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Command.hpp; path = addons/ofxBRT/libs/brt/include/Base/Command.hpp; sourceTree = SOURCE_ROOT; };
-		"BF14485C-F3D3-43EC-B551-6F05EEC0C9C3" /* AmbisonicEncoder.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = AmbisonicEncoder.hpp; path = addons/ofxBRT/libs/brt/include/Common/AmbisonicEncoder.hpp; sourceTree = SOURCE_ROOT; };
-		"C3220E6C-69B9-4FA1-9E93-EB1E41DBF9BB" /* BRTLibrary.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = BRTLibrary.h; path = addons/ofxBRT/libs/brt/include/BRTLibrary.h; sourceTree = SOURCE_ROOT; };
-		"C3DCC4A5-65D8-4776-A9C5-6B1F38314474" /* EntryPoint.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = EntryPoint.hpp; path = addons/ofxBRT/libs/brt/include/Base/EntryPoint.hpp; sourceTree = SOURCE_ROOT; };
-		"C7627D10-66BA-46F0-8002-88F231ACB28F" /* Extrapolation.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Extrapolation.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/Extrapolation.hpp; sourceTree = SOURCE_ROOT; };
-		"C98E52A7-FF78-4F71-A5C2-4E6C86F86154" /* Conventions.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Conventions.hpp; path = addons/ofxBRT/libs/brt/include/Common/Conventions.hpp; sourceTree = SOURCE_ROOT; };
-		"CB6F40AF-B710-4C08-B17F-196B52F7A7B2" /* FiltersChain.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = FiltersChain.hpp; path = addons/ofxBRT/libs/brt/include/Common/FiltersChain.hpp; sourceTree = SOURCE_ROOT; };
-		"CBABF797-E177-4A73-A33A-F58B4EC47859" /* HRTFTester.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = HRTFTester.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/HRTFTester.hpp; sourceTree = SOURCE_ROOT; };
-		"CC34B9C7-D5A2-4513-85E1-BEBE5DB0BC77" /* BilateralAmbisonicEncoder.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = BilateralAmbisonicEncoder.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/BilateralAmbisonicEncoder.hpp; sourceTree = SOURCE_ROOT; };
-		"CE3540E3-6CAE-4F91-9FBF-70FA1486C3A7" /* AmbisonicBIR.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = AmbisonicBIR.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/AmbisonicBIR.hpp; sourceTree = SOURCE_ROOT; };
-		"D43ABBD0-B144-40A2-9C34-32442E374C02" /* LibMySofaLoader.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = LibMySofaLoader.hpp; path = addons/ofxBRT/libs/brt/include/Readers/LibMySofaLoader.hpp; sourceTree = SOURCE_ROOT; };
-		"D57F2070-95F8-47F1-9AF2-11CF091A5D5B" /* OfflineInterpolation.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OfflineInterpolation.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/OfflineInterpolation.hpp; sourceTree = SOURCE_ROOT; };
-		"D64C32E8-9FBE-41F3-9796-85AFF72CAB63" /* Fprocessor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Fprocessor.hpp; path = addons/ofxBRT/libs/brt/include/Common/Fprocessor.hpp; sourceTree = SOURCE_ROOT; };
-		"D6F6EF79-8E87-4DD5-AF91-3510376172E5" /* SourceSimpleModel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SourceSimpleModel.hpp; path = addons/ofxBRT/libs/brt/include/SourceModels/SourceSimpleModel.hpp; sourceTree = SOURCE_ROOT; };
-		"D9C207B4-62B5-47F8-8ED2-6E44BC16AC19" /* Buffer.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Buffer.hpp; path = addons/ofxBRT/libs/brt/include/Common/Buffer.hpp; sourceTree = SOURCE_ROOT; };
-		"E24CB22E-EDB5-47C2-A967-AF4395549173" /* fftsg.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = fftsg.hpp; path = addons/ofxBRT/libs/brt/include/Common/fftsg.hpp; sourceTree = SOURCE_ROOT; };
-		"E2FEB216-CA6F-4C1E-8FC2-36773800CBA3" /* NearFieldEffectProcessor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = NearFieldEffectProcessor.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/NearFieldEffectProcessor.hpp; sourceTree = SOURCE_ROOT; };
+		"C2BCD87E-48E4-4555-8C1A-A49605CA82C3" /* AmbisonicDomainConvolver.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = AmbisonicDomainConvolver.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/AmbisonicDomainConvolver.hpp; sourceTree = SOURCE_ROOT; };
+		"C363E004-208D-4E36-8658-9B67978C390B" /* CommonDefinitions.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = CommonDefinitions.hpp; path = addons/ofxBRT/libs/brt/include/Common/CommonDefinitions.hpp; sourceTree = SOURCE_ROOT; };
+		"C80B0C9E-D59F-4C40-856D-6DA3D2AB234B" /* ServiceModuleInterfaces.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ServiceModuleInterfaces.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/ServiceModuleInterfaces.hpp; sourceTree = SOURCE_ROOT; };
+		"C8E00E9E-07F2-4FCD-8CCE-051D4407124D" /* SofaReader.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SofaReader.hpp; path = addons/ofxBRT/libs/brt/include/Readers/SofaReader.hpp; sourceTree = SOURCE_ROOT; };
+		"CAAE03AF-264D-40BA-B003-9C7E5F9F7892" /* ListenerModelBase.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ListenerModelBase.hpp; path = addons/ofxBRT/libs/brt/include/Base/ListenerModelBase.hpp; sourceTree = SOURCE_ROOT; };
+		"CCC5BA48-BD6F-4E82-8C23-3B789EEBDC94" /* ProcessorBase.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ProcessorBase.hpp; path = addons/ofxBRT/libs/brt/include/Base/ProcessorBase.hpp; sourceTree = SOURCE_ROOT; };
+		"CD8D75D2-33DE-4BBD-845E-F81591EB5DD0" /* NearFieldEffectProcessor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = NearFieldEffectProcessor.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/NearFieldEffectProcessor.hpp; sourceTree = SOURCE_ROOT; };
+		"CFA3BA5A-4F08-4464-876A-C5B76E1FE02D" /* LibMySofaLoader.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = LibMySofaLoader.hpp; path = addons/ofxBRT/libs/brt/include/Readers/LibMySofaLoader.hpp; sourceTree = SOURCE_ROOT; };
+		"D24AEB2D-A943-4979-858B-0CC45D9905C4" /* ListenerHRTFbasedModel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ListenerHRTFbasedModel.hpp; path = addons/ofxBRT/libs/brt/include/ListenerModels/ListenerHRTFbasedModel.hpp; sourceTree = SOURCE_ROOT; };
+		"D8391841-160C-487C-B33B-92B650E24FBE" /* FiltersChain.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = FiltersChain.hpp; path = addons/ofxBRT/libs/brt/include/Common/FiltersChain.hpp; sourceTree = SOURCE_ROOT; };
+		"D86BB945-01DC-4915-A2EC-A14D4D89971B" /* OnlineInterpolation.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OnlineInterpolation.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/OnlineInterpolation.hpp; sourceTree = SOURCE_ROOT; };
+		"DA261FDA-0A53-4ADC-A0E3-E47A2EF30FEF" /* NearFieldEffect.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = NearFieldEffect.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/NearFieldEffect.hpp; sourceTree = SOURCE_ROOT; };
+		"DA778EC3-ABF4-44C4-AFC6-A388534EFDDD" /* AmbisonicBIR.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = AmbisonicBIR.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/AmbisonicBIR.hpp; sourceTree = SOURCE_ROOT; };
+		"DEF638FA-EB7D-4A65-8F6F-DC314C4BE926" /* mysofa.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = mysofa.h; path = addons/ofxBRT/libs/brt/include/third_party_libraries/libmysofa/include/mysofa.h; sourceTree = SOURCE_ROOT; };
+		"E034B537-3BF2-4819-A684-93BF3FE39D65" /* Vector3.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Vector3.hpp; path = addons/ofxBRT/libs/brt/include/Common/Vector3.hpp; sourceTree = SOURCE_ROOT; };
+		"E10B8E20-DE0B-4651-B7A6-FC4153E1DF6D" /* DirectivityTFConvolver.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = DirectivityTFConvolver.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/DirectivityTFConvolver.hpp; sourceTree = SOURCE_ROOT; };
 		E41D3ED613B38FB500A75A5D /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 		E41D3EE513B3906D00A75A5D /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/ios/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E41D400613B39D2100A75A5D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -144,13 +146,13 @@
 		E4D8936B11527B74007E1F53 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = src/main.mm; sourceTree = SOURCE_ROOT; };
 		E4D8936C11527B74007E1F53 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
 		E4D8936D11527B74007E1F53 /* ofApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ofApp.mm; path = src/ofApp.mm; sourceTree = SOURCE_ROOT; };
-		"E6DEC966-BAF6-4E18-A274-8A8C82BB8287" /* ErrorHandler.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ErrorHandler.hpp; path = addons/ofxBRT/libs/brt/include/Common/ErrorHandler.hpp; sourceTree = SOURCE_ROOT; };
-		"E7919BD7-E839-49A2-98C5-214A94F8C6CD" /* DirectivityTFDefinitions.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = DirectivityTFDefinitions.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/DirectivityTFDefinitions.hpp; sourceTree = SOURCE_ROOT; };
-		"E88CC5DC-E55E-4D7D-919F-7E60BAA45D00" /* mysofa.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = mysofa.h; path = addons/ofxBRT/libs/brt/include/third_party_libraries/libmysofa/include/mysofa.h; sourceTree = SOURCE_ROOT; };
-		"E9528782-9505-45F2-A786-723F3766AF9F" /* AmbisonicDomainConvolver.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = AmbisonicDomainConvolver.hpp; path = addons/ofxBRT/libs/brt/include/ProcessingModules/AmbisonicDomainConvolver.hpp; sourceTree = SOURCE_ROOT; };
-		"EB96FF58-EB56-4ADA-840B-BDA57932DAE8" /* ListenerVirtualAmbisonicBasedModel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ListenerVirtualAmbisonicBasedModel.hpp; path = addons/ofxBRT/libs/brt/include/ListenerModels/ListenerVirtualAmbisonicBasedModel.hpp; sourceTree = SOURCE_ROOT; };
-		"EF3DBE5F-106A-44C7-9B48-00207527ACEB" /* test.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = test.cpp; path = addons/ofxBRT/libs/brt/test/test.cpp; sourceTree = SOURCE_ROOT; };
-		"FA2E4085-43E5-4EEF-9D13-B15349F62450" /* dr_wav.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = dr_wav.h; path = addons/ofxAudioFile/libs/dr_wav.h; sourceTree = SOURCE_ROOT; };
+		"EDB5EA50-4F5D-45C4-83F1-6B87DB28D760" /* Profiler.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Profiler.hpp; path = addons/ofxBRT/libs/brt/include/Common/Profiler.hpp; sourceTree = SOURCE_ROOT; };
+		"EF5FDAF8-6514-4D93-A8AB-E5D2ACDD541E" /* ofxlibMySofa.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxlibMySofa.h; path = addons/ofxlibMySofa/src/ofxlibMySofa.h; sourceTree = SOURCE_ROOT; };
+		"EF9043C3-46C6-496C-A407-47189AE223AE" /* SourceDirectivityModel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SourceDirectivityModel.hpp; path = addons/ofxBRT/libs/brt/include/SourceModels/SourceDirectivityModel.hpp; sourceTree = SOURCE_ROOT; };
+		"F10D693C-29F2-4FBA-948D-02BE32DE4BFA" /* InterpolationAuxiliarMethods.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = InterpolationAuxiliarMethods.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/InterpolationAuxiliarMethods.hpp; sourceTree = SOURCE_ROOT; };
+		"FDBC3993-FE6E-4D61-8304-F43701DED4BC" /* ListenerVirtualAmbisonicBasedModel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ListenerVirtualAmbisonicBasedModel.hpp; path = addons/ofxBRT/libs/brt/include/ListenerModels/ListenerVirtualAmbisonicBasedModel.hpp; sourceTree = SOURCE_ROOT; };
+		"FFB3FA6E-B719-493F-907C-D035B366105B" /* ExitPointManager.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ExitPointManager.hpp; path = addons/ofxBRT/libs/brt/include/Base/ExitPointManager.hpp; sourceTree = SOURCE_ROOT; };
+		"FFF7B45E-430B-44AA-8F95-CC851A703F57" /* OfflineInterpolationAuxiliarMethods.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OfflineInterpolationAuxiliarMethods.hpp; path = addons/ofxBRT/libs/brt/include/ServiceModules/OfflineInterpolationAuxiliarMethods.hpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,15 +181,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		"1575D83F-BB97-4F88-8AF6-A4271155FAD0" /* libs */ = {
+		"026D5BAE-10C8-4CBD-890A-FEAFB140DA3B" /* local_addons */ = {
 			isa = PBXGroup;
 			children = (
-				"3C67851E-8C60-40FC-B2CB-1FE13636659A" /* dr_flac.h */,
-				"0245D627-45A0-41EA-9654-CBCD8316414A" /* dr_mp3.h */,
-				"FA2E4085-43E5-4EEF-9D13-B15349F62450" /* dr_wav.h */,
-				"7B6CD6A4-F032-4F27-A2B7-7D37D288CCB5" /* stb_vorbis.h */,
+				"5210F87E-EF51-4EFA-B141-7553CBE15132" /* ofxAudioFile */,
+				"D530712C-0326-4286-9481-B1E1397CFEB7" /* ofxBRT */,
+				"D6E656D3-CE07-4F5F-AC3D-9F23DACBE973" /* ofxlibMySofa */,
 			);
-			name = libs;
+			name = local_addons;
+			sourceTree = SOURCE_ROOT;
+		};
+		"05ABA95A-8A19-407D-92E6-AE60EF7999F8" /* nlohmann */ = {
+			isa = PBXGroup;
+			children = (
+				"8882A8A4-448B-40BA-81B5-82B75674CC2F" /* json.hpp */,
+			);
+			name = nlohmann;
+			sourceTree = SOURCE_ROOT;
+		};
+		"0CD94965-8D96-464A-8896-F3D94F60026C" /* src */ = {
+			isa = PBXGroup;
+			children = (
+				"4EEF5670-14AE-4FAD-AB8D-4BAEB64A9FE2" /* ofxAudioFile.cpp */,
+				"32455E9F-AB9F-41B7-9B0A-9F1AD5782FDA" /* ofxAudioFile.h */,
+			);
+			name = src;
+			sourceTree = SOURCE_ROOT;
+		};
+		"12AE4953-7AD9-4D1D-8B0A-75599837C7D1" /* test */ = {
+			isa = PBXGroup;
+			children = (
+				"342547FC-F87A-4620-A06D-4F9E7C3428D2" /* test.cpp */,
+			);
+			name = test;
 			sourceTree = SOURCE_ROOT;
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -198,30 +224,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		"1C4CF2A6-6A80-46F8-8C8E-49850FDCD139" /* Base */ = {
+		"256032D9-48B5-4E00-AC91-BE2A926B0651" /* src */ = {
 			isa = PBXGroup;
 			children = (
-				"43543617-203A-4F20-BC7B-F6931EA2A482" /* BRTManager.hpp */,
-				"BC07385C-3EA4-4B2D-AE6D-BB61C7C9C0FC" /* Command.hpp */,
-				"0E47EE3F-6EF8-47C0-A3ED-6AA1452F09DF" /* CommandEntryPointManager.hpp */,
-				"C3DCC4A5-65D8-4776-A9C5-6B1F38314474" /* EntryPoint.hpp */,
-				"3014174D-8A18-4F6D-8B7D-777349B7B611" /* EntryPointManager.hpp */,
-				"16BFFE59-6399-4A63-8229-397190C727F4" /* ExitPoint.hpp */,
-				"0300FA80-E73B-4E57-8510-82CB7027096E" /* ExitPointManager.hpp */,
-				"3A8F684D-5C47-442B-A426-89B51B1AB51A" /* ListenerModelBase.hpp */,
-				"607AD64B-7C95-44B0-A8CF-77C1C15BED29" /* ObserverBase.hpp */,
-				"7922BCCB-1BE2-4936-9759-4E7DA815D108" /* ProcessorBase.hpp */,
-				"A32667F1-3BB7-4AA6-B47F-D8AF2B8A54BA" /* SourceModelBase.hpp */,
+				"9C151E50-1DAB-45DE-823E-2A8593C00917" /* ofxBRT.h */,
 			);
-			name = Base;
-			sourceTree = SOURCE_ROOT;
-		};
-		"1E248051-1768-4FCE-8509-707EBEA2F637" /* libs */ = {
-			isa = PBXGroup;
-			children = (
-				"951751CE-180F-4E14-A068-D27EB90B92E6" /* brt */,
-			);
-			name = libs;
+			name = src;
 			sourceTree = SOURCE_ROOT;
 		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
@@ -234,7 +242,7 @@
 				BB16E9930F2B1E5900518274 /* libs */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				901808C02053638E004A7774 /* Frameworks */,
-				"ECCD3D8B-590F-431E-B3C0-F371007426F7" /* local_addons */,
+				"026D5BAE-10C8-4CBD-890A-FEAFB140DA3B" /* local_addons */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -262,45 +270,105 @@
 			name = "core frameworks";
 			sourceTree = "<group>";
 		};
-		"377FF1C9-C049-42C8-B825-C3F27418E621" /* ServiceModules */ = {
+		"3954DCDB-A58A-4F2C-9178-37D066DF75AB" /* ServiceModules */ = {
 			isa = PBXGroup;
 			children = (
-				"CE3540E3-6CAE-4F91-9FBF-70FA1486C3A7" /* AmbisonicBIR.hpp */,
-				"222813C5-BD26-4EA7-A34B-7E42305B28BE" /* DirectivityTF.hpp */,
-				"B84C9739-3A07-46F5-ADC3-A572A35B6C63" /* DirectivityTFAuxiliarMethods.hpp */,
-				"E7919BD7-E839-49A2-98C5-214A94F8C6CD" /* DirectivityTFDefinitions.hpp */,
-				"C7627D10-66BA-46F0-8002-88F231ACB28F" /* Extrapolation.hpp */,
-				"8C2567FE-08BD-464C-AC83-5AC6B1370EE2" /* GridsManager.hpp */,
-				"965BFE43-E4E7-41BB-AC5A-D139EA83274B" /* HRTF.hpp */,
-				"5C20E02D-56C8-416F-BD6D-BA13A2A9816E" /* HRTFAuxiliarMethods.hpp */,
-				"A25EFBCE-D1C2-40C2-98BB-2FDD3D84BC5C" /* HRTFDefinitions.hpp */,
-				"CBABF797-E177-4A73-A33A-F58B4EC47859" /* HRTFTester.hpp */,
-				"196F2C92-1540-4652-986E-553168AE96D2" /* ILD.hpp */,
-				"BB38AB92-6159-47FA-A32F-93D7033920D9" /* InterpolationAuxiliarMethods.hpp */,
-				"D57F2070-95F8-47F1-9AF2-11CF091A5D5B" /* OfflineInterpolation.hpp */,
-				"41FE0125-6140-4623-BFBF-F9F12D2EF6FF" /* OfflineInterpolationAuxiliarMethods.hpp */,
-				"94B71CE7-A50C-4BA2-9B7A-716EB473AB71" /* OnlineInterpolation.hpp */,
-				"71B9D9C3-6691-4727-8EA4-FE4FDC192DD5" /* ServiceModuleInterfaces.hpp */,
-				"50E9736A-71AD-4EB2-8531-62A57759F427" /* VirtualSpeakers.hpp */,
+				"DA778EC3-ABF4-44C4-AFC6-A388534EFDDD" /* AmbisonicBIR.hpp */,
+				"663E3A3E-924F-47B8-9666-88501DD262AA" /* DirectivityTF.hpp */,
+				"313DD555-87A1-49D7-9626-F7F0AAE88783" /* DirectivityTFAuxiliarMethods.hpp */,
+				"2283EBB4-0E0C-4917-8757-DA2E46ED5643" /* DirectivityTFDefinitions.hpp */,
+				"7153E2C0-AC68-46B1-96B9-9136B376A057" /* Extrapolation.hpp */,
+				"719118D1-681C-4A64-815C-7830550D662C" /* GridsManager.hpp */,
+				"A7AAA210-9716-4BB9-835D-5E97DCA65BF6" /* HRTF.hpp */,
+				"BA388328-9922-4CC5-BC37-9A1020E8DF77" /* HRTFAuxiliarMethods.hpp */,
+				"03B739FB-CB9A-4E28-B5E7-5A41ACF7FBAF" /* HRTFDefinitions.hpp */,
+				"23ECE8DF-545E-42EF-9440-FF014672B131" /* HRTFTester.hpp */,
+				"18F1ED69-2437-4C67-AD65-6A46FC0B1ED5" /* ILD.hpp */,
+				"F10D693C-29F2-4FBA-948D-02BE32DE4BFA" /* InterpolationAuxiliarMethods.hpp */,
+				"39A9BBCE-DD76-40DE-A5C0-2F5C6A8CFD5A" /* OfflineInterpolation.hpp */,
+				"FFF7B45E-430B-44AA-8F95-CC851A703F57" /* OfflineInterpolationAuxiliarMethods.hpp */,
+				"D86BB945-01DC-4915-A2EC-A14D4D89971B" /* OnlineInterpolation.hpp */,
+				"C80B0C9E-D59F-4C40-856D-6DA3D2AB234B" /* ServiceModuleInterfaces.hpp */,
+				"418D983E-686A-485A-9C80-38C92BEF0B63" /* VirtualSpeakers.hpp */,
 			);
 			name = ServiceModules;
 			sourceTree = SOURCE_ROOT;
 		};
-		"494E7646-4285-4C93-BCEF-039E7D218168" /* test */ = {
+		"42AE0EB5-EF2E-43AC-9A67-DA6DF2FFAAFD" /* ListenerModels */ = {
 			isa = PBXGroup;
 			children = (
-				"EF3DBE5F-106A-44C7-9B48-00207527ACEB" /* test.cpp */,
+				"D24AEB2D-A943-4979-858B-0CC45D9905C4" /* ListenerHRTFbasedModel.hpp */,
+				"FDBC3993-FE6E-4D61-8304-F43701DED4BC" /* ListenerVirtualAmbisonicBasedModel.hpp */,
 			);
-			name = test;
+			name = ListenerModels;
 			sourceTree = SOURCE_ROOT;
 		};
-		"61361611-4EAE-46AB-969D-2B6BD2FDD4A1" /* third_party_libraries */ = {
+		"5210F87E-EF51-4EFA-B141-7553CBE15132" /* ofxAudioFile */ = {
 			isa = PBXGroup;
 			children = (
-				"CDD8E811-7CE3-4748-B630-13EA17C722AA" /* libmysofa */,
-				"D174EBE3-41EF-4422-86D6-CA9ACACE4F7A" /* nlohmann */,
+				"BF2154AE-4A40-4549-B70C-AA213FCEBC36" /* libs */,
+				"0CD94965-8D96-464A-8896-F3D94F60026C" /* src */,
 			);
-			name = third_party_libraries;
+			name = ofxAudioFile;
+			sourceTree = SOURCE_ROOT;
+		};
+		"58E35531-5FC1-460E-BEA7-2772D1C2E799" /* brt */ = {
+			isa = PBXGroup;
+			children = (
+				"5D1789AA-BC94-4419-AEA2-273DA4F27D10" /* include */,
+				"12AE4953-7AD9-4D1D-8B0A-75599837C7D1" /* test */,
+			);
+			name = brt;
+			sourceTree = SOURCE_ROOT;
+		};
+		"5D1789AA-BC94-4419-AEA2-273DA4F27D10" /* include */ = {
+			isa = PBXGroup;
+			children = (
+				"0E50E34D-56F3-4B20-8A45-E6F79516A00C" /* BRTLibrary.h */,
+				"60C2FB8D-E5CC-47BB-A466-4019EA767BAE" /* Base */,
+				"ED276FA0-0047-4017-811D-713ADC04DB57" /* Common */,
+				"42AE0EB5-EF2E-43AC-9A67-DA6DF2FFAAFD" /* ListenerModels */,
+				"E039936A-E04E-495F-BE19-4B010043EEFC" /* ProcessingModules */,
+				"9BE36CE6-321D-4188-A2CA-AF3BAA3C72DA" /* Readers */,
+				"3954DCDB-A58A-4F2C-9178-37D066DF75AB" /* ServiceModules */,
+				"945D64E1-6128-4BD7-A7E5-EBC2B7FF8787" /* SourceModels */,
+				"DB4713A0-5EF1-4C5D-9C37-FE52B917D387" /* third_party_libraries */,
+			);
+			name = include;
+			sourceTree = SOURCE_ROOT;
+		};
+		"60C2FB8D-E5CC-47BB-A466-4019EA767BAE" /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				"A36F6B72-E71F-45EB-B73B-02ACC9F5051F" /* BRTManager.hpp */,
+				"5B54D375-7C54-46BC-A088-F0CD6D365A40" /* Command.hpp */,
+				"A23340E9-02F8-4328-B856-6C0903B10A38" /* CommandEntryPointManager.hpp */,
+				"98FE822A-4F38-4A88-B015-2142720FA8F9" /* EntryPoint.hpp */,
+				"A754F151-2FF0-4F3F-A058-DCA1B50EE30B" /* EntryPointManager.hpp */,
+				"3E5888EC-BA58-423E-B253-F8CDC6DBB8D8" /* ExitPoint.hpp */,
+				"FFB3FA6E-B719-493F-907C-D035B366105B" /* ExitPointManager.hpp */,
+				"CAAE03AF-264D-40BA-B003-9C7E5F9F7892" /* ListenerModelBase.hpp */,
+				"16945B6E-CA1A-42EC-B5B4-885C115C19BD" /* ObserverBase.hpp */,
+				"CCC5BA48-BD6F-4E82-8C23-3B789EEBDC94" /* ProcessorBase.hpp */,
+				"29DD7E0C-D152-4649-959B-89FC281E567C" /* SourceModelBase.hpp */,
+			);
+			name = Base;
+			sourceTree = SOURCE_ROOT;
+		};
+		"61ED634A-FE04-42C0-96CB-9885AEA69006" /* src */ = {
+			isa = PBXGroup;
+			children = (
+				"EF5FDAF8-6514-4D93-A8AB-E5D2ACDD541E" /* ofxlibMySofa.h */,
+			);
+			name = src;
+			sourceTree = SOURCE_ROOT;
+		};
+		"6907E9AA-C5F8-4D65-A27D-A8396A67F44F" /* libmysofa */ = {
+			isa = PBXGroup;
+			children = (
+				"FB9E030C-2F27-4024-92F6-147E86175A2C" /* include */,
+			);
+			name = libmysofa;
 			sourceTree = SOURCE_ROOT;
 		};
 		6948EE371B920CB800B5AC1A /* local_addons */ = {
@@ -310,71 +378,12 @@
 			name = local_addons;
 			sourceTree = "<group>";
 		};
-		"6C85A3B9-AD03-46B8-A317-EF382870073C" /* ofxBRT */ = {
+		"88CD8AFE-A5A1-4BD2-86C0-887ACEC4DC6D" /* libmysofa */ = {
 			isa = PBXGroup;
 			children = (
-				"1E248051-1768-4FCE-8509-707EBEA2F637" /* libs */,
-				"88519796-92A0-468B-AC3E-DE2EB4DA6B26" /* src */,
+				"B2DD0E96-B7FD-4443-B88B-01834784751B" /* include */,
 			);
-			name = ofxBRT;
-			sourceTree = SOURCE_ROOT;
-		};
-		"72AD0061-2B53-4C02-8DD9-C8ECF8966AE8" /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				"62E5DBCC-2FB2-49D5-9795-F7904602DA45" /* AddDelayExpansionMethod.hpp */,
-				"BF14485C-F3D3-43EC-B551-6F05EEC0C9C3" /* AmbisonicEncoder.hpp */,
-				"29899677-A90B-446D-88FB-E9B237B191C9" /* BiquadFilter.hpp */,
-				"D9C207B4-62B5-47F8-8ED2-6E44BC16AC19" /* Buffer.hpp */,
-				"3E37F88C-7003-4D05-AAC3-5948557F49B1" /* CommonDefinitions.hpp */,
-				"C98E52A7-FF78-4F71-A5C2-4E6C86F86154" /* Conventions.hpp */,
-				"83516294-22F4-4B91-BCE9-BFF673BA503F" /* EnvelopeDetector.hpp */,
-				"E6DEC966-BAF6-4E18-A274-8A8C82BB8287" /* ErrorHandler.hpp */,
-				"CB6F40AF-B710-4C08-B17F-196B52F7A7B2" /* FiltersChain.hpp */,
-				"D64C32E8-9FBE-41F3-9796-85AFF72CAB63" /* Fprocessor.hpp */,
-				"679B633C-9B95-45AC-9536-BCB0D039430A" /* GlobalParameters.hpp */,
-				"795B036B-AAAC-46E2-8454-25B8F7A9E42A" /* Profiler.hpp */,
-				"7566DAF4-DC95-49F0-9009-7111BC69B7B5" /* Quaternion.hpp */,
-				"4472DE2E-F7F1-4AF9-A1BE-7786105BC08E" /* SourceListenerRelativePositionCalculation.hpp */,
-				"7443C986-29FA-408E-9383-1347E8844B88" /* Transform.hpp */,
-				"981119E1-3CEA-4E25-B436-86DB0231463E" /* UPCAnechoic.hpp */,
-				"258BB0A1-2AA4-4172-A49D-88D592617185" /* Vector3.hpp */,
-				"E24CB22E-EDB5-47C2-A967-AF4395549173" /* fftsg.hpp */,
-			);
-			name = Common;
-			sourceTree = SOURCE_ROOT;
-		};
-		"7AC3A9EB-B825-4484-9FB2-16946A274901" /* include */ = {
-			isa = PBXGroup;
-			children = (
-				"C3220E6C-69B9-4FA1-9E93-EB1E41DBF9BB" /* BRTLibrary.h */,
-				"1C4CF2A6-6A80-46F8-8C8E-49850FDCD139" /* Base */,
-				"72AD0061-2B53-4C02-8DD9-C8ECF8966AE8" /* Common */,
-				"BE26214F-2DBA-48F0-ADA5-A2C24B80B617" /* ListenerModels */,
-				"BE6F5633-21B5-4DB4-B081-81D18FDC5445" /* ProcessingModules */,
-				"90DE6547-57D5-4C4C-B274-9FD30725CBA3" /* Readers */,
-				"377FF1C9-C049-42C8-B825-C3F27418E621" /* ServiceModules */,
-				"9090EE47-A026-4820-AD94-EC782AB2767E" /* SourceModels */,
-				"61361611-4EAE-46AB-969D-2B6BD2FDD4A1" /* third_party_libraries */,
-			);
-			name = include;
-			sourceTree = SOURCE_ROOT;
-		};
-		"818A0FA8-A4C0-495A-A1FB-67D9DD0BC1F4" /* src */ = {
-			isa = PBXGroup;
-			children = (
-				"22E8EACC-21BA-423A-9C84-1FD7F2B01552" /* ofxAudioFile.cpp */,
-				"601608EF-112E-421E-ABCE-3D4B6E5CB2C6" /* ofxAudioFile.h */,
-			);
-			name = src;
-			sourceTree = SOURCE_ROOT;
-		};
-		"88519796-92A0-468B-AC3E-DE2EB4DA6B26" /* src */ = {
-			isa = PBXGroup;
-			children = (
-				"4FCC08C5-D980-45C3-833B-F59F474D9619" /* ofxBRT.h */,
-			);
-			name = src;
+			name = libmysofa;
 			sourceTree = SOURCE_ROOT;
 		};
 		901808C02053638E004A7774 /* Frameworks */ = {
@@ -384,31 +393,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		"9090EE47-A026-4820-AD94-EC782AB2767E" /* SourceModels */ = {
+		"945D64E1-6128-4BD7-A7E5-EBC2B7FF8787" /* SourceModels */ = {
 			isa = PBXGroup;
 			children = (
-				"5452C7EE-4448-465F-AC88-39DF00A7DFB4" /* SourceDirectivityModel.hpp */,
-				"D6F6EF79-8E87-4DD5-AF91-3510376172E5" /* SourceSimpleModel.hpp */,
+				"EF9043C3-46C6-496C-A407-47189AE223AE" /* SourceDirectivityModel.hpp */,
+				"8DF5348F-8BF6-4BDA-B7FC-683E6200C803" /* SourceSimpleModel.hpp */,
 			);
 			name = SourceModels;
-			sourceTree = SOURCE_ROOT;
-		};
-		"90DE6547-57D5-4C4C-B274-9FD30725CBA3" /* Readers */ = {
-			isa = PBXGroup;
-			children = (
-				"D43ABBD0-B144-40A2-9C34-32442E374C02" /* LibMySofaLoader.hpp */,
-				"174A520D-6399-4E65-B5A0-FA421124152D" /* SofaReader.hpp */,
-			);
-			name = Readers;
-			sourceTree = SOURCE_ROOT;
-		};
-		"951751CE-180F-4E14-A068-D27EB90B92E6" /* brt */ = {
-			isa = PBXGroup;
-			children = (
-				"7AC3A9EB-B825-4484-9FB2-16946A274901" /* include */,
-				"494E7646-4285-4C93-BCEF-039E7D218168" /* test */,
-			);
-			name = brt;
 			sourceTree = SOURCE_ROOT;
 		};
 		9936F60E1BFA4DEE00891288 /* mediaAssets */ = {
@@ -420,10 +411,27 @@
 			path = mediaAssets;
 			sourceTree = "<group>";
 		};
-		"B5349831-E9BD-4937-AA5F-CE17798EA236" /* include */ = {
+		"9BE36CE6-321D-4188-A2CA-AF3BAA3C72DA" /* Readers */ = {
 			isa = PBXGroup;
 			children = (
-				"E88CC5DC-E55E-4D7D-919F-7E60BAA45D00" /* mysofa.h */,
+				"CFA3BA5A-4F08-4464-876A-C5B76E1FE02D" /* LibMySofaLoader.hpp */,
+				"C8E00E9E-07F2-4FCD-8CCE-051D4407124D" /* SofaReader.hpp */,
+			);
+			name = Readers;
+			sourceTree = SOURCE_ROOT;
+		};
+		"AAB5CD06-AFFB-4B29-BCBC-BF070DC82F03" /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				"58E35531-5FC1-460E-BEA7-2772D1C2E799" /* brt */,
+			);
+			name = libs;
+			sourceTree = SOURCE_ROOT;
+		};
+		"B2DD0E96-B7FD-4443-B88B-01834784751B" /* include */ = {
+			isa = PBXGroup;
+			children = (
+				"DEF638FA-EB7D-4A65-8F6F-DC314C4BE926" /* mysofa.h */,
 			);
 			name = include;
 			sourceTree = SOURCE_ROOT;
@@ -464,58 +472,70 @@
 			name = core;
 			sourceTree = "<group>";
 		};
-		"BE26214F-2DBA-48F0-ADA5-A2C24B80B617" /* ListenerModels */ = {
+		"BEA7F041-67A3-48D0-96A6-2D74307171F3" /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				"6622B576-8F79-4125-8ED8-A98D74DDD889" /* ListenerHRTFbasedModel.hpp */,
-				"EB96FF58-EB56-4ADA-840B-BDA57932DAE8" /* ListenerVirtualAmbisonicBasedModel.hpp */,
+				"6907E9AA-C5F8-4D65-A27D-A8396A67F44F" /* libmysofa */,
 			);
-			name = ListenerModels;
+			name = libs;
 			sourceTree = SOURCE_ROOT;
 		};
-		"BE6F5633-21B5-4DB4-B081-81D18FDC5445" /* ProcessingModules */ = {
+		"BF2154AE-4A40-4549-B70C-AA213FCEBC36" /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				"E9528782-9505-45F2-A786-723F3766AF9F" /* AmbisonicDomainConvolver.hpp */,
-				"8DE3AE66-558C-46F7-865E-600E82361E61" /* AmbisonicDomainConvolverProcessor.hpp */,
-				"CC34B9C7-D5A2-4513-85E1-BEBE5DB0BC77" /* BilateralAmbisonicEncoder.hpp */,
-				"052B910C-E1B2-481A-BDE1-207AFC2994C8" /* BilateralAmbisonicEncoderProcessor.hpp */,
-				"327D6CAA-4A50-4CBA-B82F-045D957BED64" /* DirectivityTFConvolver.hpp */,
-				"AC142FCE-716E-47F8-B3EF-7BA9A2AC0C0F" /* DistanceAttenuation.hpp */,
-				"5939A549-F46B-42B8-818B-F2D22BD38CA6" /* HRTFConvolver.hpp */,
-				"A4654E00-07AB-4D50-9518-50165C52C46E" /* HRTFConvolverProcessor.hpp */,
-				"305308B9-81FA-40D0-94C3-DE9C69FAF256" /* MultipleInputProcessor.hpp */,
-				"1FD189F4-3672-4648-B39D-6E0089D979E5" /* NearFieldEffect.hpp */,
-				"E2FEB216-CA6F-4C1E-8FC2-36773800CBA3" /* NearFieldEffectProcessor.hpp */,
-				"8DBADB55-AD4A-4D7B-A47C-7C30BC7DDCA1" /* SingleBinauralProcessor.hpp */,
-				"76CF33AE-8862-4E26-B86E-CBF1B4069207" /* SingleProcessor.hpp */,
+				"B6BC5732-8FDB-45D5-B7BE-F349C943D088" /* dr_flac.h */,
+				"35DBFACA-3AD1-47EB-848E-3BB131D071B6" /* dr_mp3.h */,
+				"B37E167E-12A1-4322-9E38-3CC49E918901" /* dr_wav.h */,
+				"9575BA49-A7C7-4B0C-B3C1-96AFEB2F57EE" /* stb_vorbis.h */,
+			);
+			name = libs;
+			sourceTree = SOURCE_ROOT;
+		};
+		"D530712C-0326-4286-9481-B1E1397CFEB7" /* ofxBRT */ = {
+			isa = PBXGroup;
+			children = (
+				"AAB5CD06-AFFB-4B29-BCBC-BF070DC82F03" /* libs */,
+				"256032D9-48B5-4E00-AC91-BE2A926B0651" /* src */,
+			);
+			name = ofxBRT;
+			sourceTree = SOURCE_ROOT;
+		};
+		"D6E656D3-CE07-4F5F-AC3D-9F23DACBE973" /* ofxlibMySofa */ = {
+			isa = PBXGroup;
+			children = (
+				"BEA7F041-67A3-48D0-96A6-2D74307171F3" /* libs */,
+				"61ED634A-FE04-42C0-96CB-9885AEA69006" /* src */,
+			);
+			name = ofxlibMySofa;
+			sourceTree = SOURCE_ROOT;
+		};
+		"DB4713A0-5EF1-4C5D-9C37-FE52B917D387" /* third_party_libraries */ = {
+			isa = PBXGroup;
+			children = (
+				"88CD8AFE-A5A1-4BD2-86C0-887ACEC4DC6D" /* libmysofa */,
+				"05ABA95A-8A19-407D-92E6-AE60EF7999F8" /* nlohmann */,
+			);
+			name = third_party_libraries;
+			sourceTree = SOURCE_ROOT;
+		};
+		"E039936A-E04E-495F-BE19-4B010043EEFC" /* ProcessingModules */ = {
+			isa = PBXGroup;
+			children = (
+				"C2BCD87E-48E4-4555-8C1A-A49605CA82C3" /* AmbisonicDomainConvolver.hpp */,
+				"A9623DEB-EE88-4AEE-B67C-C7CA9F32ADF1" /* AmbisonicDomainConvolverProcessor.hpp */,
+				"10140EEE-4BAF-4A39-A497-B3219426D5D4" /* BilateralAmbisonicEncoder.hpp */,
+				"26849E0C-53D1-4C8A-B0D1-D1A7A3C1E8A3" /* BilateralAmbisonicEncoderProcessor.hpp */,
+				"E10B8E20-DE0B-4651-B7A6-FC4153E1DF6D" /* DirectivityTFConvolver.hpp */,
+				"05AE32FF-EBEF-4955-9988-A7FB0C7F3921" /* DistanceAttenuation.hpp */,
+				"5D306BE0-FE79-4EA3-8053-9180E6A9A1C2" /* HRTFConvolver.hpp */,
+				"A03E0769-B26B-48D6-983F-12112DBE3576" /* HRTFConvolverProcessor.hpp */,
+				"124C6235-8A81-443F-B9F3-603DFE22473A" /* MultipleInputProcessor.hpp */,
+				"DA261FDA-0A53-4ADC-A0E3-E47A2EF30FEF" /* NearFieldEffect.hpp */,
+				"CD8D75D2-33DE-4BBD-845E-F81591EB5DD0" /* NearFieldEffectProcessor.hpp */,
+				"62C9F8F8-C6E9-4832-A20C-BB99F58CD146" /* SingleBinauralProcessor.hpp */,
+				"3C8AB476-DEDC-444A-A7E1-3E21A021815F" /* SingleProcessor.hpp */,
 			);
 			name = ProcessingModules;
-			sourceTree = SOURCE_ROOT;
-		};
-		"BF618E4F-09B1-4B5C-A6C5-CDCD3D1387AB" /* ofxAudioFile */ = {
-			isa = PBXGroup;
-			children = (
-				"1575D83F-BB97-4F88-8AF6-A4271155FAD0" /* libs */,
-				"818A0FA8-A4C0-495A-A1FB-67D9DD0BC1F4" /* src */,
-			);
-			name = ofxAudioFile;
-			sourceTree = SOURCE_ROOT;
-		};
-		"CDD8E811-7CE3-4748-B630-13EA17C722AA" /* libmysofa */ = {
-			isa = PBXGroup;
-			children = (
-				"B5349831-E9BD-4937-AA5F-CE17798EA236" /* include */,
-			);
-			name = libmysofa;
-			sourceTree = SOURCE_ROOT;
-		};
-		"D174EBE3-41EF-4422-86D6-CA9ACACE4F7A" /* nlohmann */ = {
-			isa = PBXGroup;
-			children = (
-				"2A5FFD5A-5C2D-474F-8E3D-63C0595DF30C" /* json.hpp */,
-			);
-			name = nlohmann;
 			sourceTree = SOURCE_ROOT;
 		};
 		E41D40FE13B3A0D800A75A5D /* Products */ = {
@@ -536,13 +556,37 @@
 			path = src;
 			sourceTree = SOURCE_ROOT;
 		};
-		"ECCD3D8B-590F-431E-B3C0-F371007426F7" /* local_addons */ = {
+		"ED276FA0-0047-4017-811D-713ADC04DB57" /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				"BF618E4F-09B1-4B5C-A6C5-CDCD3D1387AB" /* ofxAudioFile */,
-				"6C85A3B9-AD03-46B8-A317-EF382870073C" /* ofxBRT */,
+				"71F19EBD-74FD-4535-A20B-B786A1696E8C" /* AddDelayExpansionMethod.hpp */,
+				"04B4FFB7-220A-4089-B149-FB3A17038AFC" /* AmbisonicEncoder.hpp */,
+				"78FEECE1-6C9D-4181-906D-3D3EFC21577B" /* BiquadFilter.hpp */,
+				"11CCAB17-9EB4-4173-9EBD-54DD9D823007" /* Buffer.hpp */,
+				"C363E004-208D-4E36-8658-9B67978C390B" /* CommonDefinitions.hpp */,
+				"67FF92FF-9375-43DC-A860-78C5A55F1B6F" /* Conventions.hpp */,
+				"001D8D80-4CDE-4FD7-AC0A-C287D1B9A731" /* EnvelopeDetector.hpp */,
+				"B3BDDC12-20D7-403B-B7E5-12D5CEBF2FE8" /* ErrorHandler.hpp */,
+				"D8391841-160C-487C-B33B-92B650E24FBE" /* FiltersChain.hpp */,
+				"A05632D3-B4E7-4735-8AB6-7C1F348A13EC" /* Fprocessor.hpp */,
+				"5AC9C43B-58C7-4B3A-AC5F-809EFCF91A50" /* GlobalParameters.hpp */,
+				"EDB5EA50-4F5D-45C4-83F1-6B87DB28D760" /* Profiler.hpp */,
+				"01CAE134-5F81-4DD4-A4ED-43A0FE060D37" /* Quaternion.hpp */,
+				"99CF44A8-1C36-4044-80AD-86B8A2EC5AB5" /* SourceListenerRelativePositionCalculation.hpp */,
+				"0E5AFEC5-7757-4E2A-9CD7-52D44FA86EE6" /* Transform.hpp */,
+				"723C27A4-EE50-481D-8E15-6F47D3711F70" /* UPCAnechoic.hpp */,
+				"E034B537-3BF2-4819-A684-93BF3FE39D65" /* Vector3.hpp */,
+				"4053B1D5-F547-456A-997F-70729FF6AD62" /* fftsg.hpp */,
 			);
-			name = local_addons;
+			name = Common;
+			sourceTree = SOURCE_ROOT;
+		};
+		"FB9E030C-2F27-4024-92F6-147E86175A2C" /* include */ = {
+			isa = PBXGroup;
+			children = (
+				"5D95B637-27E5-4FA2-BB0A-552CACBDE656" /* mysofa.h */,
+			);
+			name = include;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -648,8 +692,8 @@
 			files = (
 				E4D8936E11527B74007E1F53 /* main.mm in Sources */,
 				E4D8936F11527B74007E1F53 /* ofApp.mm in Sources */,
-				"1FEAF6D8-B13C-4F08-AC1A-D3A27C8128D1" /* ofxAudioFile.cpp in Sources */,
-				"C8E26D23-94FB-4A8E-9B24-F4B1EC7C0CCB" /* test.cpp in Sources */,
+				"CD2AAF72-AC50-40EA-8529-8F13DCE30715" /* ofxAudioFile.cpp in Sources */,
+				"384E089F-779A-4735-9B58-DC4D276B93EE" /* test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,11 +752,19 @@
 					addons/ofxBRT/libs/brt/include/third_party_libraries/nlohmann,
 					addons/ofxBRT/libs/brt/test,
 					addons/ofxBRT/src,
+					addons/ofxlibMySofa/libs,
+					addons/ofxlibMySofa/libs/libmysofa,
+					addons/ofxlibMySofa/libs/libmysofa/include,
+					addons/ofxlibMySofa/libs/libmysofa/lib,
+					addons/ofxlibMySofa/libs/libmysofa/lib/ios,
+					addons/ofxlibMySofa/src,
 				);
 				INFOPLIST_FILE = "ofxiOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				OTHER_LDFLAGS = (
 					"$(OF_CORE_LIBS)",
 					"$(OF_CORE_FRAMEWORKS)",
+					addons/ofxlibMySofa/libs/libmysofa/lib/ios/libmysofa.a,
 				);
 				PRODUCT_NAME = "${TARGET_NAME}";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -763,11 +815,19 @@
 					addons/ofxBRT/libs/brt/include/third_party_libraries/nlohmann,
 					addons/ofxBRT/libs/brt/test,
 					addons/ofxBRT/src,
+					addons/ofxlibMySofa/libs,
+					addons/ofxlibMySofa/libs/libmysofa,
+					addons/ofxlibMySofa/libs/libmysofa/include,
+					addons/ofxlibMySofa/libs/libmysofa/lib,
+					addons/ofxlibMySofa/libs/libmysofa/lib/ios,
+					addons/ofxlibMySofa/src,
 				);
 				INFOPLIST_FILE = "ofxiOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				OTHER_LDFLAGS = (
 					"$(OF_CORE_LIBS)",
 					"$(OF_CORE_FRAMEWORKS)",
+					addons/ofxlibMySofa/libs/libmysofa/lib/ios/libmysofa.a,
 				);
 				PRODUCT_NAME = "${TARGET_NAME}";
 				TARGETED_DEVICE_FAMILY = "1,2";
