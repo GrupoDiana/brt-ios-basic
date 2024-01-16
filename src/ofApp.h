@@ -3,6 +3,19 @@
 #include "ofxiOS.h"
 #include "ofxBRT.h"
 
+#define SOFA_FILEPATH_1 "3DTI_HRTF_D2_256s_48000Hz.sofa"
+#define SOURCE_FILEPATH_1 "MusArch_Sample_48kHz_AnechoicSpeech.wav"
+
+
+#define HRTFRESAMPLINGSTEP 15
+#define SAMPLERATE 48000
+#define BUFFERSIZE 256
+
+
+constexpr float SOURCE1_INITIAL_AZIMUTH =  3.141592653589793 / 2.0; // pi/2
+constexpr float SOURCE1_INITIAL_ELEVATION = 0.f;
+constexpr float SOURCE1_INITIAL_DISTANCE = 0.1f; // 10 cm.
+
 class ofApp : public ofxiOSApp {
 	
     public:
@@ -33,14 +46,30 @@ private:
     void StartOFAudio();
     void StopOFAudio();
     
+    /// Basic wav reading
+    void LoadWav(const char* stringIn, std::vector<float>& samplesVector);
+    
+    /// Load SOFA hrtf file via BRT Library
+    bool LoadSofaFile(const std::string & _filePath);
+
+    /// Get global cartesian coordinates from local to listener polar coordinates  
+    Common::CVector3 Spherical2Cartesians(float azimuth, float elevation, float radius);
+    
+    
 private:
     /// BRT Library
-    Common::CGlobalParameters globalParameters;                                                     // Class where the global BRT parameters are defined.
-    BRTBase::CBRTManager brtManager;                                                                // BRT global manager interface
-    std::shared_ptr<BRTListenerModel::CListenerHRTFbasedModel> listener;                            // Pointer to listener model
-    std::shared_ptr<BRTSourceModel::CSourceSimpleModel> source1BRT;                               // Pointers to each audio source model
+    Common::CGlobalParameters globalParameters;                                   // Global BRT parameters
+    BRTBase::CBRTManager brtManager;                                              // BRT global manager interface
+    std::shared_ptr<BRTListenerModel::CListenerHRTFbasedModel> listener;          // Pointer to listener model
+    std::shared_ptr<BRTSourceModel::CSourceSimpleModel> source1BRT;               // Pointer to audio source model
+    BRTReaders::CSOFAReader sofaReader;                                           // SOFA reader provided by BRT Library
+    std::vector<std::shared_ptr<BRTServices::CHRTF>> HRTF_list;                   // List of HRTFs loaded
+    Common::CEarPair<CMonoBuffer<float>>	outputBufferStereo;					  // Stereo buffer containing processed audio
     
-    /// Openframeworks Audio
+    /// Input audio sample
+    std::vector<float> sample1;                                                  // Input Audio
+    
+    /// Openframeworks audio vars
     bool ofAudioStarted;
     ofSoundStream systemSoundStream;
 
