@@ -8,7 +8,7 @@
 
 
 #define HRTFRESAMPLINGSTEP 15
-#define SAMPLERATE 48000
+#define SAMPLERATE 44100
 #define BUFFERSIZE 256
 
 
@@ -19,6 +19,8 @@ constexpr float SOURCE1_INITIAL_DISTANCE = 0.1f; // 10 cm.
 class ofApp : public ofxiOSApp {
 	
     public:
+
+        void audioOut(ofSoundBuffer & buffer);
         void setup() override;
         void update() override;
         void draw() override;
@@ -65,7 +67,7 @@ private:
     BRTReaders::CSOFAReader sofaReader;                                           // SOFA reader provided by BRT Library
     std::vector<std::shared_ptr<BRTServices::CHRTF>> HRTF_list;                   // List of HRTFs loaded
     Common::CEarPair<CMonoBuffer<float>>	outputBufferStereo;					  // Stereo buffer containing processed audio
-    
+    unsigned int posSource1, endSource1;	                                      // Store start and endi position of the current frame. 
     /// Input audio sample
     std::vector<float> sample1;                                                  // Input Audio
     

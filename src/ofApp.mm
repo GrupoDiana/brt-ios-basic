@@ -1,5 +1,56 @@
 #include "ofApp.h"
 
+
+//--------------------------------------------------------------
+// Auxiliary local function to extract audio frames from wav samples
+//
+void FillBuffer(const std::vector<float>& samples, unsigned int& position, unsigned int& endFrame, CMonoBuffer<float> &output)
+{
+    position = endFrame + 1;                             // Set starting point as next sample of the end of last frame
+    if (position >= samples.size())                 // If the end of the audio is met, the position variable must return to the beginning
+        position = 0;
+
+    endFrame = position + output.size() - 1;             // Set ending point as starting point plus frame size
+    for (int i = 0; i < output.size(); i++) {
+        if ((position + i) < samples.size())
+            output[i] = (samples[position + i]);     // Fill with audio
+        else
+            output[i] = 0.0f;                             // Fill with zeros if the end of the audio is met
+    }
+}
+
+//--------------------------------------------------------------
+void ofApp::audioOut(ofSoundBuffer & buffer)
+{
+    // Make sure we still have the proper buffer size
+    if (globalParameters.GetBufferSize() == buffer.getNumFrames())
+    {
+        // Prepare output channels 
+        // bOutput.left.resize(buffer.getNumFrames());
+	    // bOutput.right.resize(buffer.getNumFrames());
+
+        // Prepare input buffers from sources
+        CMonoBuffer<float> source1Input(buffer.getNumFrames());
+        FillBuffer(sample1, posSource1, endSource1, source1Input);
+        source1BRT->SetBuffer(source1Input);
+        
+        // Binaural processing
+        brtManager.ProcessAll();
+
+        // Get ouput stereo buffers
+        Common::CEarPair<CMonoBuffer<float>> bufferOutput;
+        listener->GetBuffers(bufferOutput.left, bufferOutput.right);
+
+        // Interlace stereo output
+        for (size_t i = 0; i < buffer.getNumFrames(); i++) {
+            buffer[i*buffer.getNumChannels()     ] = bufferOutput.left[i];
+            buffer[i*buffer.getNumChannels() + 1 ] = bufferOutput.right[i];
+        }
+
+    }
+}
+
+
 //--------------------------------------------------------------
 void ofApp::setup(){	
 
@@ -27,8 +78,8 @@ void ofApp::setup(){
     
     // Setup source 1
     brtManager.BeginSetup();
-        source1BRT = brtManager.CreateSoundSource<BRTSourceModel::CSourceSimpleModel>("speech");    // Instatiate a BRT Sound Source
-        listener->ConnectSoundSource(source1BRT);                                                   // Connect Source to the listener
+    source1BRT = brtManager.CreateSoundSource<BRTSourceModel::CSourceSimpleModel>("speech");    // Instatiate a BRT Sound Source
+    listener->ConnectSoundSource(source1BRT);                                               // Connect Source to the listener
     brtManager.EndSetup();
     std::string pathToWav = pathToData + SOURCE_FILEPATH_1;
     LoadWav(pathToWav.c_str(), sample1);                                                // Loading .wav file
@@ -41,7 +92,6 @@ void ofApp::setup(){
   	outputBufferStereo.right.resize(globalParameters.GetBufferSize());
 
     // Setup audio 
-    StopOFAudio();
     ofSoundStreamSettings settings;
 	settings.setOutListener(this);
 	settings.sampleRate = globalParameters.GetSampleRate();
@@ -49,6 +99,9 @@ void ofApp::setup(){
 	settings.numInputChannels = 0;
 	settings.bufferSize = globalParameters.GetBufferSize();
     systemSoundStream.setup(settings);
+    systemSoundStream.stop();
+    // not implemented on iOS volatile auto deviceList = systemSoundStream.getDeviceList();
+    ofAudioStarted = false;
     
 }
 
@@ -69,7 +122,6 @@ void ofApp::exit(){
 
 //--------------------------------------------------------------
 void ofApp::touchDown(ofTouchEventArgs & touch){
-
 }
 
 //--------------------------------------------------------------
@@ -84,7 +136,11 @@ void ofApp::touchUp(ofTouchEventArgs & touch){
 
 //--------------------------------------------------------------
 void ofApp::touchDoubleTap(ofTouchEventArgs & touch){
-
+    if (ofAudioStarted) {
+        StartOFAudio();
+    } else {
+        StopOFAudio();
+    }
 }
 
 //--------------------------------------------------------------
@@ -117,20 +173,21 @@ void ofApp::launchedWithURL(std::string url){
 
 }
 
-/// StartOFAudio
+//--------------------------------------------------------------
 void ofApp::StartOFAudio() {
     if (ofAudioStarted) return;
     systemSoundStream.start();
     ofAudioStarted = true;
 }
 
-
+//--------------------------------------------------------------
 void ofApp::StopOFAudio() {
     if (!ofAudioStarted) return;
     systemSoundStream.stop();
     ofAudioStarted = false;
 }
 
+//--------------------------------------------------------------
 bool ofApp::LoadSofaFile(const std::string & _filePath) {
     
     bool result = false;
@@ -157,6 +214,7 @@ bool ofApp::LoadSofaFile(const std::string & _filePath) {
 }
 
 
+//--------------------------------------------------------------
 void ofApp::LoadWav(const char* stringIn, std::vector<float>& sampleOut)
 {
     struct WavHeader                                 // Local declaration of wav header struct type (more info in http://soundfile.sapp.org/doc/WaveFormat/)
@@ -187,7 +245,8 @@ void ofApp::LoadWav(const char* stringIn, std::vector<float>& sampleOut)
         sampleOut.push_back((float)sample[i] / (float)INT16_MAX);                 // Converting samples to float to push them in samples vector
 }
 
- Common::CVector3 ofApp::Spherical2Cartesians(float azimuth, float elevation, float radius)
+//--------------------------------------------------------------
+Common::CVector3 ofApp::Spherical2Cartesians(float azimuth, float elevation, float radius)
   {
 
     Common::CVector3 globalPos = listener->GetListenerTransform().GetPosition();
