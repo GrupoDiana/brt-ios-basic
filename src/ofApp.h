@@ -3,13 +3,13 @@
 #include "ofxiOS.h"
 #include "ofxBRT.h"
 
-#define SOFA_FILEPATH_1 "3DTI_HRTF_D2_256s_48000Hz.sofa"
-#define SOURCE_FILEPATH_1 "MusArch_Sample_48kHz_AnechoicSpeech.wav"
+#define SOFA_FILEPATH_1 "3DTI_HRTF_IRC1008_512s_44100Hz.sofa"
+#define SOURCE_FILEPATH_1 "MusArch_Sample_44.1kHz_Anechoic_FemaleSpeech.wav"
 
 
 #define HRTFRESAMPLINGSTEP 15
 #define SAMPLERATE 44100
-#define BUFFERSIZE 256
+#define BUFFERSIZE 512
 
 
 constexpr float SOURCE1_INITIAL_AZIMUTH =  3.141592653589793 / 2.0; // pi/2
