@@ -25,9 +25,6 @@ void ofApp::audioOut(ofSoundBuffer & buffer)
     // Make sure we still have the proper buffer size
     if (globalParameters.GetBufferSize() == buffer.getNumFrames())
     {
-        // Prepare output channels 
-        // bOutput.left.resize(buffer.getNumFrames());
-	    // bOutput.right.resize(buffer.getNumFrames());
 
         // Prepare input buffers from sources
         CMonoBuffer<float> source1Input(buffer.getNumFrames());
@@ -87,10 +84,6 @@ void ofApp::setup(){
     Common::CTransform source1 = Common::CTransform();
     source1.SetPosition(Spherical2Cartesians(SOURCE1_INITIAL_AZIMUTH, SOURCE1_INITIAL_ELEVATION, SOURCE1_INITIAL_DISTANCE));
     source1BRT->SetSourceTransform(source1);
-
-    // Reserve output buffers
-  	outputBufferStereo.left.resize(globalParameters.GetBufferSize());
-  	outputBufferStereo.right.resize(globalParameters.GetBufferSize());
 
     // Setup audio 
     ofSoundStreamSettings settings;

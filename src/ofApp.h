@@ -66,10 +66,10 @@ private:
     std::shared_ptr<BRTSourceModel::CSourceSimpleModel> source1BRT;               // Pointer to audio source model
     BRTReaders::CSOFAReader sofaReader;                                           // SOFA reader provided by BRT Library
     std::vector<std::shared_ptr<BRTServices::CHRTF>> HRTF_list;                   // List of HRTFs loaded
-    Common::CEarPair<CMonoBuffer<float>>	outputBufferStereo;					  // Stereo buffer containing processed audio
-    unsigned int posSource1, endSource1;	                                      // Store start and endi position of the current frame. 
+
     /// Input audio sample
     std::vector<float> sample1;                                                  // Input Audio
+    unsigned int posSource1, endSource1;	                                      // Store start and endi position of the current frame. 
     
     /// Openframeworks audio vars
     bool ofAudioStarted;
