@@ -40,11 +40,12 @@ void ofApp::audioOut(ofSoundBuffer & buffer)
         // Get ouput stereo buffers
         Common::CEarPair<CMonoBuffer<float>> bufferOutput;
         listener->GetBuffers(bufferOutput.left, bufferOutput.right);
+        
 
         // Interlace stereo output
         for (size_t i = 0; i < buffer.getNumFrames(); i++) {
-            buffer[i*buffer.getNumChannels()     ] = bufferOutput.left[i];
-            buffer[i*buffer.getNumChannels() + 1 ] = bufferOutput.right[i];
+           buffer[i*buffer.getNumChannels()     ] = bufferOutput.left[i];
+           buffer[i*buffer.getNumChannels() + 1 ] = bufferOutput.right[i];
         }
 
     }
@@ -136,7 +137,7 @@ void ofApp::touchUp(ofTouchEventArgs & touch){
 
 //--------------------------------------------------------------
 void ofApp::touchDoubleTap(ofTouchEventArgs & touch){
-    if (ofAudioStarted) {
+    if (!ofAudioStarted) {
         StartOFAudio();
     } else {
         StopOFAudio();
