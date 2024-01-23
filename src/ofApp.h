@@ -41,10 +41,6 @@ class ofApp : public ofxiOSApp {
 private:
     
     /// openFrameworks Audio
-    // int GetAudioDeviceIndexMenu(std::vector<ofSoundDevice>& list, int _audioDeviceId);
-    // void SetDeviceAndAudio(int _audioDeviceId);
-    // void audioOut(float* output, int bufferSize, int nChannels);
-    // void audioProcess(Common::CEarPair<CMonoBuffer<float>>& bufferOutput, int uiBufferSize);
     void StartOFAudio();
     void StopOFAudio();
     
