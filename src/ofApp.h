@@ -20,7 +20,7 @@ class ofApp : public ofxiOSApp {
 	
     public:
 
-        void audioOut(ofSoundBuffer & buffer);
+        void audioOut(ofSoundBuffer & buffer) override;
         void setup() override;
         void update() override;
         void draw() override;
@@ -53,6 +53,9 @@ private:
     /// Get global cartesian coordinates from local to listener polar coordinates  
     Common::CVector3 Spherical2Cartesians(float azimuth, float elevation, float radius);
     
+    /// Set source1 azimuth
+    void setSourceAzimuth(float newAzimuth);
+    
     
 private:
     /// BRT Library
@@ -60,6 +63,9 @@ private:
     BRTBase::CBRTManager brtManager;                                              // BRT global manager interface
     std::shared_ptr<BRTListenerModel::CListenerHRTFbasedModel> listener;          // Pointer to listener model
     std::shared_ptr<BRTSourceModel::CSourceSimpleModel> source1BRT;               // Pointer to audio source model
+    float sourceAzimuth{SOURCE1_INITIAL_AZIMUTH};
+    float sourceElevation{SOURCE1_INITIAL_ELEVATION};
+    float sourceDistance{SOURCE1_INITIAL_DISTANCE};
     BRTReaders::CSOFAReader sofaReader;                                           // SOFA reader provided by BRT Library
     std::vector<std::shared_ptr<BRTServices::CHRTF>> HRTF_list;                   // List of HRTFs loaded
 
@@ -70,5 +76,6 @@ private:
     /// Openframeworks audio vars
     bool ofAudioStarted;
     ofSoundStream systemSoundStream;
+    
 
 };

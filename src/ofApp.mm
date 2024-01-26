@@ -1,5 +1,6 @@
 #include "ofApp.h"
 
+constexpr float RAD_2_DEG = 180.0 / 3.141592653589793;
 
 //--------------------------------------------------------------
 // Auxiliary local function to extract audio frames from wav samples
@@ -97,6 +98,9 @@ void ofApp::setup(){
     // not implemented on iOS volatile auto deviceList = systemSoundStream.getDeviceList();
     ofAudioStarted = false;
     
+    // Setup graphics
+    ofSetColor(255,255,255);
+    ofFill();
 }
 
 //--------------------------------------------------------------
@@ -106,6 +110,61 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    if (ofAudioStarted) {
+
+        // Change background to pink.
+        ofBackground(255,120,120);
+
+        ofPushMatrix();
+        ofPushView();
+        ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
+        
+        // Draw a square
+        ofSetRectMode(OF_RECTMODE_CENTER);
+        ofDrawRectangle(0,0,100,100);
+
+        // Draw a message
+        ofScale(2);
+        ofDrawBitmapString("Double tap anywhere to stop", -100,-100);
+        
+        // Draw another message
+        ofDrawBitmapString("Drag finger to move source around", -130,100);
+        
+        // Display source Azimuth
+        std::string str = "Azimuth is ";
+        str += ofToString(sourceAzimuth * RAD_2_DEG) + " degrees";
+        ofDrawBitmapString(str,-100,150);
+        
+        // Draw a line and two triangles
+        ofSetLineWidth(20);
+        ofDrawLine(-130, 200, 130, 200);
+        ofTranslate(130,200);
+        ofDrawTriangle(-25,-25,25,0,-25,25);
+        ofScale(-1,1);
+        ofTranslate(260,0);
+        ofDrawTriangle(-25,-25,25,0,-25,25);
+        ofPopMatrix();
+        ofPopView();
+    }
+    else {
+        // Change background to grey
+        ofBackground(120,120,120);
+ 
+        ofPushMatrix();
+        ofPushView();
+        ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
+        
+        // Draw a triangle
+        ofDrawTriangle(-50,-50,50,0,-50,50);
+        
+        // Draw a message
+        ofScale(2);
+        ofDrawBitmapString("Double tap anywhere to play", -100,-100);
+
+        ofPopMatrix();
+        ofPopView();
+        
+    }
 	
 }
 
@@ -120,9 +179,11 @@ void ofApp::touchDown(ofTouchEventArgs & touch){
 
 //--------------------------------------------------------------
 void ofApp::touchMoved(ofTouchEventArgs & touch){
-
+    if (touch.id == 0) {
+        float azimuth = ofMap(touch.x, 10, ofGetWidth()-10, 3.141592653589793 / 2.0, -3.141592653589793 / 2.0);
+        setSourceAzimuth(azimuth);
+    }
 }
-
 //--------------------------------------------------------------
 void ofApp::touchUp(ofTouchEventArgs & touch){
 
@@ -255,3 +316,15 @@ Common::CVector3 ofApp::Spherical2Cartesians(float azimuth, float elevation, flo
 
     return globalPos;
   }
+
+
+//--------------------------------------------------------------
+void  ofApp::setSourceAzimuth(float newAzimuth)
+{
+    Common::CVector3 newPosition;
+    newPosition = Spherical2Cartesians(newAzimuth, sourceElevation, sourceDistance);
+    Common::CTransform newPose = source1BRT->GetCurrentSourceTransform();
+    newPose.SetPosition(newPosition);
+    source1BRT->SetSourceTransform(newPose);
+    sourceAzimuth = newAzimuth;
+}
