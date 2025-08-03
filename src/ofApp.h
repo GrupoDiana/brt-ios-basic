@@ -6,6 +6,8 @@
 #define SOFA_FILEPATH_1 "3DTI_HRTF_IRC1008_512s_44100Hz.sofa"
 #define SOURCE_FILEPATH_1 "MusArch_Sample_44.1kHz_Anechoic_FemaleSpeech.wav"
 
+#define LISTERNER_ID "listener1"
+#define LISTENER_HRTF_MODEL_ID "listenerHRTF1"
 
 #define HRTFRESAMPLINGSTEP 15
 #define SAMPLERATE 44100
@@ -15,6 +17,7 @@
 constexpr float SOURCE1_INITIAL_AZIMUTH =  3.141592653589793 / 2.0; // pi/2
 constexpr float SOURCE1_INITIAL_ELEVATION = 0.f;
 constexpr float SOURCE1_INITIAL_DISTANCE = 0.1f; // 10 cm.
+
 
 class ofApp : public ofxiOSApp {
 	
@@ -61,8 +64,10 @@ private:
     /// BRT Library
     Common::CGlobalParameters globalParameters;                                   // Global BRT parameters
     BRTBase::CBRTManager brtManager;                                              // BRT global manager interface
-    std::shared_ptr<BRTListenerModel::CListenerHRTFbasedModel> listener;          // Pointer to listener model
-    std::shared_ptr<BRTSourceModel::CSourceSimpleModel> source1BRT;               // Pointer to audio source model
+    std::shared_ptr<BRTBase::CListener> listener;                                 // Pointer to listener
+    std::shared_ptr<BRTListenerModel::CListenerDirectHRTFConvolutionModel>listenerModel;          // Pointer to listener model (HRTF model)
+    std::shared_ptr<BRTSourceModel::CSourceOmnidirectionalModel> source1BRT;               // Pointer to audio source model
+   
     float sourceAzimuth{SOURCE1_INITIAL_AZIMUTH};
     float sourceElevation{SOURCE1_INITIAL_ELEVATION};
     float sourceDistance{SOURCE1_INITIAL_DISTANCE};

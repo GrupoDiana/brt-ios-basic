@@ -59,8 +59,12 @@ void ofApp::setup(){
     
     // Listener setup
     brtManager.BeginSetup();
-    listener = brtManager.CreateListener<BRTListenerModel::CListenerHRTFbasedModel>("listener1");
+    listener = brtManager.CreateListener<BRTBase::CListener>(LISTERNER_ID); // Instatiate a BRT Listener
+    listenerModel = brtManager.CreateListenerModel<BRTListenerModel::CListenerDirectHRTFConvolutionModel>(LISTENER_HRTF_MODEL_ID); // Instatiate a BRT Listener Model
+    volatile bool control = listener->ConnectListenerModel(LISTENER_HRTF_MODEL_ID); // Connect Listener to the Listener Model
+    // TODO: Check if control is true, otherwise print error message.
     brtManager.EndSetup();    
+
     Common::CTransform listenerPosition = Common::CTransform();		 // Setting listener in (0,0,0)
     listenerPosition.SetPosition(Common::CVector3(0, 0, 0));
     listener->SetListenerTransform(listenerPosition);
@@ -74,19 +78,24 @@ void ofApp::setup(){
     if (hrtfSofaLoaded1) {
         listener->SetHRTF(HRTF_list[0]);
     }
+
+    // TODO: Load Nearfield ILD coefficientes. 
     
-    // Setup source 1
+    // Create and connect source 1
     brtManager.BeginSetup();
-    source1BRT = brtManager.CreateSoundSource<BRTSourceModel::CSourceSimpleModel>("speech");    // Instatiate a BRT Sound Source
-    listener->ConnectSoundSource(source1BRT);                                               // Connect Source to the listener
+    source1BRT = brtManager.CreateSoundSource<BRTSourceModel::CSourceOmnidirectionalModel>("speech");    // Instatiate a BRT Sound Source
+    listenerModel->ConnectSoundSource(source1BRT);                                               // Connect Source to the listener model
+    // Can also be done with listenerModel = brtManager->GetListenerModel(LISTENER_HRTF_MODEL_ID); // etc. 
     brtManager.EndSetup();
+
+    // Setup source 1
     std::string pathToWav = pathToData + SOURCE_FILEPATH_1;
     LoadWav(pathToWav.c_str(), sample1);                                                // Loading .wav file
     Common::CTransform source1 = Common::CTransform();
     source1.SetPosition(Spherical2Cartesians(SOURCE1_INITIAL_AZIMUTH, SOURCE1_INITIAL_ELEVATION, SOURCE1_INITIAL_DISTANCE));
     source1BRT->SetSourceTransform(source1);
 
-    // Setup audio 
+    // Setup openFrameworks audio 
     ofSoundStreamSettings settings;
 	settings.setOutListener(this);
 	settings.sampleRate = globalParameters.GetSampleRate();
@@ -258,7 +267,7 @@ bool ofApp::LoadSofaFile(const std::string & _filePath) {
             result = false;
         }
         else {
-            result = sofaReader.ReadHRTFFromSofa(_filePath, hrtf, HRTFRESAMPLINGSTEP, "NearestPoint");
+            result = sofaReader.ReadHRTFFromSofa(_filePath, hrtf, HRTFRESAMPLINGSTEP, BRTServices::TEXTRAPOLATION_METHOD::nearest_point);
             if (result) {
                 // Success reading hrtf!
                 HRTF_list.push_back(hrtf);
@@ -323,7 +332,7 @@ void  ofApp::setSourceAzimuth(float newAzimuth)
 {
     Common::CVector3 newPosition;
     newPosition = Spherical2Cartesians(newAzimuth, sourceElevation, sourceDistance);
-    Common::CTransform newPose = source1BRT->GetCurrentSourceTransform();
+    Common::CTransform newPose = source1BRT->GetSourceTransform();
     newPose.SetPosition(newPosition);
     source1BRT->SetSourceTransform(newPose);
     sourceAzimuth = newAzimuth;
