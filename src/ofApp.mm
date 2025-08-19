@@ -1,6 +1,11 @@
+// Simplified version using only ofSoundStream + BRT
 #include "ofApp.h"
+#import <AVFoundation/AVFoundation.h>
 
 constexpr float RAD_2_DEG = 180.0 / 3.141592653589793;
+
+static int gAudioCallbackCounter = 0;
+static bool gFirstCallbackLogged = false;
 
 //--------------------------------------------------------------
 // Auxiliary local function to extract audio frames from wav samples
@@ -20,16 +25,69 @@ void FillBuffer(const std::vector<float>& samples, unsigned int& position, unsig
     }
 }
 
+// Linear resampling version to adapt the WAV to the output sample rate
+static void FillBufferResampled(const std::vector<float>& samples,
+                                double &posFrac,
+                                double srcToDstRatio,
+                                CMonoBuffer<float> &output)
+{
+    if (samples.empty()) {
+        for (int i=0;i<output.size();++i) output[i]=0.0f;
+        return;
+    }
+    for (int i=0;i<output.size();++i) {
+        size_t i0 = (size_t)posFrac;
+        size_t i1 = i0 + 1;
+        float a = samples[i0 % samples.size()];
+        float b = samples[i1 % samples.size()];
+        float t = (float)(posFrac - (double)i0);
+        output[i] = a + (b - a) * t;
+        posFrac += srcToDstRatio;
+        if (posFrac >= samples.size()) posFrac -= samples.size();
+    }
+}
+
 //--------------------------------------------------------------
 void ofApp::audioOut(ofSoundBuffer & buffer)
 {
+    // Log first callback and session sample rate
+    if (!gFirstCallbackLogged) {
+        double sessionSR = [[AVAudioSession sharedInstance] sampleRate];
+    NSLog(@"[AudioDbg] First audioOut callback. sessionSR=%.0f globalSR=%d frames=%d", sessionSR, (int)globalParameters.GetSampleRate(), (int)buffer.getNumFrames());
+        gFirstCallbackLogged = true;
+    }
     // Make sure we still have the proper buffer size
     if (globalParameters.GetBufferSize() == buffer.getNumFrames())
     {
+        gAudioCallbackCounter++;
+        if ((gAudioCallbackCounter % 400)==0) {
+            NSLog(@"[AudioDbg] audioOut active. bufferFrames=%d SR=%d", (int)buffer.getNumFrames(), (int)globalParameters.GetSampleRate());
+        }
 
         // Prepare input buffers from sources
         CMonoBuffer<float> source1Input(buffer.getNumFrames());
-        FillBuffer(sample1, posSource1, endSource1, source1Input);
+        int outSR = (int)globalParameters.GetSampleRate();
+        if (outSR == SOURCE_FILE_SAMPLERATE) {
+            FillBuffer(sample1, posSource1, endSource1, source1Input);
+        } else {
+            double ratio = (double)SOURCE_FILE_SAMPLERATE / (double)outSR; // advance in source per output sample
+            FillBufferResampled(sample1, posSource1Frac, ratio, source1Input);
+        }
+        if (HRTF_list.empty()) {
+            // Fallback: mono to stereo output to verify the audio route
+            static int c = 0; if ((c++ % 200) == 0) NSLog(@"[Audio] Fallback passthrough (no HRTF). frames=%d", (int)buffer.getNumFrames());
+            if (!sample1.empty()) {
+                for (size_t i = 0; i < buffer.getNumFrames(); i++) {
+                    float v = source1Input[i];
+                    buffer[i*buffer.getNumChannels()    ] = v;
+                    buffer[i*buffer.getNumChannels() + 1] = v;
+                }
+            } else {
+                memset(buffer.getBuffer().data(), 0, buffer.size() * sizeof(float));
+            }
+            return;
+        }
+
         source1BRT->SetBuffer(source1Input);
         
         // Binaural processing
@@ -46,6 +104,14 @@ void ofApp::audioOut(ofSoundBuffer & buffer)
            buffer[i*buffer.getNumChannels() + 1 ] = bufferOutput.right[i];
         }
 
+    // Compute simple RMS to verify it's not all zeros
+        if ((gAudioCallbackCounter % 400)==0) {
+            double accL=0, accR=0; size_t N=buffer.getNumFrames();
+            for (size_t i=0;i<N;i++){double L=buffer[i*buffer.getNumChannels()], R=buffer[i*buffer.getNumChannels()+1]; accL+=L*L; accR+=R*R;}
+            double rmsL = sqrt(accL / (double)N); double rmsR = sqrt(accR / (double)N);
+            NSLog(@"[AudioDbg] RMS L=%.4f R=%.4f", rmsL, rmsR);
+        }
+
     }
 }
 
@@ -53,9 +119,13 @@ void ofApp::audioOut(ofSoundBuffer & buffer)
 //--------------------------------------------------------------
 void ofApp::setup(){	
 
-    // Global parameters. 
+    // Desired global parameters
     globalParameters.SetSampleRate(SAMPLERATE);
     globalParameters.SetBufferSize(BUFFERSIZE);
+
+    // Initialize WAV read indices
+    posSource1 = 0;
+    endSource1 = 0;
     
     // Listener setup
     brtManager.BeginSetup();
@@ -77,6 +147,9 @@ void ofApp::setup(){
     bool hrtfSofaLoaded1 = LoadSofaFile(pathToSofa);
     if (hrtfSofaLoaded1) {
         listener->SetHRTF(HRTF_list[0]);
+    NSLog(@"[Audio] HRTF loaded OK. SR=%d, bufferSize=%d", (int)globalParameters.GetSampleRate(), (int)globalParameters.GetBufferSize());
+    } else {
+    NSLog(@"[Audio] HRTF not loaded (likely SR mismatch). SR=%d", (int)globalParameters.GetSampleRate());
     }
 
     // TODO: Load Nearfield ILD coefficientes. 
@@ -91,22 +164,88 @@ void ofApp::setup(){
     // Setup source 1
     std::string pathToWav = pathToData + SOURCE_FILEPATH_1;
     LoadWav(pathToWav.c_str(), sample1);                                                // Loading .wav file
+    NSLog(@"[Audio] WAV loaded: %d samples", (int)sample1.size());
     Common::CTransform source1 = Common::CTransform();
     source1.SetPosition(Spherical2Cartesians(SOURCE1_INITIAL_AZIMUTH, SOURCE1_INITIAL_ELEVATION, SOURCE1_INITIAL_DISTANCE));
     source1BRT->SetSourceTransform(source1);
 
-    // Setup openFrameworks audio 
+    // Configure AVAudioSession (simple)
+    @autoreleasepool {
+        AVAudioSession *session = [AVAudioSession sharedInstance];
+        NSError *error = nil;
+        AVAudioSessionCategoryOptions opts = AVAudioSessionCategoryOptionMixWithOthers;
+        [session setCategory:AVAudioSessionCategoryPlayback withOptions:opts error:&error];
+        if (error) NSLog(@"[Audio] setCategory error: %@", [error localizedDescription]); error = nil;
+        [session setMode:AVAudioSessionModeDefault error:&error];
+        if (error) NSLog(@"[Audio] setMode error: %@", [error localizedDescription]); error = nil;
+        [session setPreferredSampleRate:SAMPLERATE error:&error];
+        if (error) NSLog(@"[Audio] setPreferredSampleRate error: %@", [error localizedDescription]); error = nil;
+        NSTimeInterval preferredBuffer = (NSTimeInterval)globalParameters.GetBufferSize() / (NSTimeInterval)globalParameters.GetSampleRate();
+        [session setPreferredIOBufferDuration:preferredBuffer error:&error];
+        if (error) NSLog(@"[Audio] setPreferredIOBufferDuration error: %@", [error localizedDescription]); error = nil;
+        [session setActive:YES error:&error];
+        if (error) NSLog(@"[Audio] setActive error: %@", [error localizedDescription]);
+    // Log current route
+        AVAudioSessionRouteDescription *route = session.currentRoute;
+        NSMutableString *routeStr = [NSMutableString stringWithString:@"[AudioRoute] Outputs:" ];
+        for (AVAudioSessionPortDescription *port in route.outputs) {
+            [routeStr appendFormat:@" %@@%@", port.portType, port.portName];
+        }
+        NSLog(@"%@", routeStr);
+    // Route change observer
+        [[NSNotificationCenter defaultCenter] addObserverForName:AVAudioSessionRouteChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+            AVAudioSessionRouteChangeReason reason = (AVAudioSessionRouteChangeReason)[note.userInfo[AVAudioSessionRouteChangeReasonKey] unsignedIntegerValue];
+            AVAudioSessionRouteDescription *r = [AVAudioSession sharedInstance].currentRoute;
+            NSMutableString *rs = [NSMutableString stringWithFormat:@"[AudioRoute] Route change (reason=%lu) outputs:", (unsigned long)reason];
+            for (AVAudioSessionPortDescription *p in r.outputs) {
+                [rs appendFormat:@" %@@%@", p.portType, p.portName];
+            }
+            NSLog(@"%@", rs);
+            if (ofAudioStarted) {
+                systemSoundStream.stop();
+                systemSoundStream.start();
+                NSLog(@"[AudioRoute] Stream restarted after route change");
+            }
+        }];
+    }
+
+    // Setup openFrameworks audio
     ofSoundStreamSettings settings;
-	settings.setOutListener(this);
-	settings.sampleRate = globalParameters.GetSampleRate();
-	settings.numOutputChannels = 2;
-	settings.numInputChannels = 0;
-	settings.bufferSize = globalParameters.GetBufferSize();
+    settings.setOutListener(this);
+    settings.sampleRate = globalParameters.GetSampleRate();
+    settings.numOutputChannels = 2;
+    settings.numInputChannels = 0;
+    settings.bufferSize = globalParameters.GetBufferSize();
     systemSoundStream.setup(settings);
-    systemSoundStream.stop();
-    // not implemented on iOS volatile auto deviceList = systemSoundStream.getDeviceList();
-    ofAudioStarted = false;
+    ofAudioStarted = false; // UI state only
+
+    // Align BRT parameters with the values actually negotiated by iOS
+    // (iOS may ignore the requested values and use e.g. 48000 Hz / 256 frames)
+    auto actualBufferSize = systemSoundStream.getBufferSize();
+    auto actualSampleRate = systemSoundStream.getSampleRate();
+    if (actualBufferSize > 0 && actualBufferSize != (int)globalParameters.GetBufferSize()) {
+        globalParameters.SetBufferSize(actualBufferSize);
+    NSLog(@"[Audio] iOS negotiated BufferSize: %d", (int)actualBufferSize);
+    }
+    if (actualSampleRate > 0 && actualSampleRate != (int)globalParameters.GetSampleRate()) {
+        globalParameters.SetSampleRate(actualSampleRate);
+    NSLog(@"[Audio] iOS negotiated SampleRate: %d", (int)actualSampleRate);
+    }
+
+    // If the HRTF was not loaded due to SR mismatch, retry now with the real SR
+    if (HRTF_list.empty()) {
+        std::string pathToData = ofToDataPath("");
+        std::string pathToSofa = pathToData + SOFA_FILEPATH_1;
+        bool hrtfOk = LoadSofaFile(pathToSofa);
+        if (!hrtfOk) {
+            ofLogWarning("audio") << "Could not load HRTF: SOFA SR does not match system SR (" << globalParameters.GetSampleRate() << ")";
+        } else {
+            listener->SetHRTF(HRTF_list[0]);
+        }
+    }
     
+    // (AVAudioEngine backend removed for simplicity)
+
     // Setup graphics
     ofSetColor(255,255,255);
     ofFill();
@@ -240,6 +379,14 @@ void ofApp::launchedWithURL(std::string url){
 //--------------------------------------------------------------
 void ofApp::StartOFAudio() {
     if (ofAudioStarted) return;
+    // Reactivate session and log current route
+    NSError *err = nil;
+    [[AVAudioSession sharedInstance] setActive:YES error:&err];
+    if (err) NSLog(@"[Audio] Error reactivating session: %@", [err localizedDescription]);
+    AVAudioSessionRouteDescription *route = [AVAudioSession sharedInstance].currentRoute;
+    for (AVAudioSessionPortDescription *p in route.outputs) {
+    NSLog(@"[AudioRoute] Starting with output: %@@%@", p.portType, p.portName);
+    }
     systemSoundStream.start();
     ofAudioStarted = true;
 }
@@ -308,6 +455,9 @@ void ofApp::LoadWav(const char* stringIn, std::vector<float>& sampleOut)
     for (int i = 0; i < samplesCount; i++)
         sampleOut.push_back((float)sample[i] / (float)INT16_MAX);                 // Converting samples to float to push them in samples vector
 }
+
+//--------------------------------------------------------------
+// (ProcessAudioBlock function removed - alternative backend no longer used)
 
 //--------------------------------------------------------------
 Common::CVector3 ofApp::Spherical2Cartesians(float azimuth, float elevation, float radius)

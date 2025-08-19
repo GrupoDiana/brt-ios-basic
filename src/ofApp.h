@@ -2,15 +2,17 @@
 
 #include "ofxiOS.h"
 #include "ofxBRT.h"
+#include <memory>
 
-#define SOFA_FILEPATH_1 "3DTI_HRTF_IRC1008_512s_44100Hz.sofa"
+#define SOFA_FILEPATH_1 "3DTI_HRTF_D2_256s_48000Hz.sofa"
 #define SOURCE_FILEPATH_1 "MusArch_Sample_44.1kHz_Anechoic_FemaleSpeech.wav"
+#define SOURCE_FILE_SAMPLERATE 44100
 
 #define LISTERNER_ID "listener1"
 #define LISTENER_HRTF_MODEL_ID "listenerHRTF1"
 
 #define HRTFRESAMPLINGSTEP 15
-#define SAMPLERATE 44100
+#define SAMPLERATE 48000
 #define BUFFERSIZE 512
 
 
@@ -75,12 +77,14 @@ private:
     std::vector<std::shared_ptr<BRTServices::CHRTF>> HRTF_list;                   // List of HRTFs loaded
 
     /// Input audio sample
-    std::vector<float> sample1;                                                  // Input Audio
-    unsigned int posSource1, endSource1;	                                      // Store start and endi position of the current frame. 
+    std::vector<float> sample1;                                                  // Input audio
+    unsigned int posSource1, endSource1;	                                      // Store start and ending position of the current frame
+    double posSource1Frac {0.0};                                                 // Fractional position for resampling
     
     /// Openframeworks audio vars
     bool ofAudioStarted;
     ofSoundStream systemSoundStream;
+  
     
 
 };
